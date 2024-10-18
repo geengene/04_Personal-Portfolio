@@ -1,0 +1,25 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+body {
+  background: linear-gradient(135deg, #000000, #3b1f8996),
+    url("../assets/body_background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 16/9;
+}
+.leftContainer {
+}
+.musicContainer {
+  height: 40vh;
+  width: 30vh;
+  border-radius: 5%;
+  border-color: #95e2d6;
+  border-style: solid;
+  border-width: 3px;
+  background-color: black;
+}
