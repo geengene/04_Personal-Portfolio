@@ -2,24 +2,94 @@ html,
 body {
   height: 100%;
   width: 100%;
-  margin: 0;
 }
 body {
-  background: linear-gradient(135deg, #000000, #3b1f8996),
+  font-family: "JetBrains Mono", monospace;
+  background-image: linear-gradient(135deg, #000000, #3b1f89b5),
     url("../assets/body_background.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   aspect-ratio: 16/9;
+  z-index: -1;
 }
-.leftContainer {
-}
+
 .musicContainer {
-  height: 40vh;
-  width: 30vh;
-  border-radius: 5%;
-  border-color: #95e2d6;
+  position: fixed;
+  margin-top: 7vh;
+  margin-left: 7vh;
+  height: 62vh;
+  width: 38vh;
+  border-radius: 30px;
+  overflow: hidden;
+  border-color: #96e2d6;
   border-style: solid;
   border-width: 3px;
   background-color: black;
+}
+
+.musicImage {
+  position: relative;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 15px;
+  overflow: hidden;
+  background-image: url("../assets/wanderlust_by_erisiar_ddzdf96-414w-2x.jpg");
+  background-position: center;
+  aspect-ratio: 1/1;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.musicText {
+  position: relative;
+  color: lightgray;
+  font-size: 15px;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+.musicName {
+  position: relative;
+  color: #96e2d6;
+  font-size: 30px;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+.musicSubtitle {
+  position: relative;
+  color: #96e2d6;
+  font-size: 15px;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+#progress {
+  appearance: none;
+  width: 85%;
+  height: 5px;
+  background: #f5c1e7;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5%;
+}
+#progress::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #f5c1e7;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.musicControls {
+  position: relative;
+  color: #f5c1e7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+.musicControls div {
+  margin: 20px;
 }
