@@ -24,10 +24,9 @@ function playPause() {
 
 document.addEventListener("keydown", (e) => {
   if (e.key === " " || e.key === "Play" || e.key === "MediaPlayPause") {
-    // Toggle the play/pause button
     play.classList.toggle("fa-circle-pause");
     play.classList.toggle("fa-circle-play");
-    if (song.paused()) {
+    if (song.paused) {
       song.play();
       setInterval(() => {
         progress.value = song.currentTime;
@@ -45,39 +44,67 @@ progress.onchange = function () {
   play.classList.add("fa-circle-pause");
 };
 
-song.addEventListener("change", (e) => {
-  console.log(e);
-  const audioFile = e.target.files[0];
-  const reader = new FileReader();
-  reader.addEventListener("load", (e) => {
-    const arrayBuffer = e.target.result;
-    const audioContext = new (window.AudioContext ||
-      window.webkitAudioContext)();
-    audioContext.decodeAudioData(arrayBuffer, (buffer) => {
-      visualise(audioBuffer);
+// Fetch and read audio file as ArrayBuffer when the song starts playing
+song.addEventListener("playing", async () => {
+  const audioSrc = song.querySelector("source").src;
+
+  try {
+    const response = await fetch(audioSrc);
+    const audioBlob = await response.blob();
+
+    const reader = new FileReader();
+    reader.addEventListener("load", (e) => {
+      // console.log(e);
+      const arrayBuffer = e.target.result;
+      const audioContext = new (window.AudioContext ||
+        window.webkitAudioContext)();
+
+      // convert arrayBuffer to audioBuffer using decodeAudioData
+      audioContext.decodeAudioData(arrayBuffer, (audioBuffer) => {
+        console.log(audioBuffer);
+        visualise(audioBuffer, audioContext, song);
+      });
     });
-  });
-  reader.readAsArrayBuffer(audioFile);
+    reader.readAsArrayBuffer(audioBlob);
+  } catch (error) {
+    console.error("Error fetching and reading audio file:", error);
+  }
 });
 
-function visualise(audioBuffer) {
-  const canvas = document.getElementById("canvas");
-  canvas.width = 600;
-  canvas.height = 200;
+function visualise(audioBuffer, audioContext, song) {
+  const canvas = document.getElementById("musicCanvas");
+  canvas.width = canvas.clientWidth;
+  canvas.height = canvas.clientHeight;
+
+  const analyser = audioContext.createAnalyser();
+  analyser.fftSize = 32;
+  const frequencyBufferLength = analyser.frequencyBinCount;
+  const frequencyData = new Uint8Array(frequencyBufferLength);
+
+  const source = audioContext.createMediaElementSource(song);
+  source.connect(analyser);
+  analyser.connect(audioContext.destination);
   const canvasContext = canvas.getContext("2d");
-  const channelData = audioBuffer.getChannelData(0);
-  const numberOfChunks = 400;
-  const chunkSize = Math.ceil(channelData.length / numberOfChunks);
 
-  canvasContext.fillStyle = "white";
-  // canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+  canvasContext.fillStyle = "pink";
+  canvasContext.fillRect(0, 0, canvas.width, canvas.height);
+  console.log(canvas.width, canvas.height);
+  const barWidth = canvas.width / frequencyBufferLength;
 
-  for (let i = 0; i < numberOfChunks; i++) {
-    // all items from 0 to chunkSize will be in the first chunk
-    // all items from chunkSize to 2*chunkSize will be in the second chunk
-    const chunk = channelData.slice(i * chunkSize, (i + 1) * chunkSize);
-    const min = Math.min(...chunk);
-    const max = Math.max(...chunk);
-    console.log(min, max);
+  function drawMusic() {
+    requestAnimationFrame(drawMusic);
+    canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+    analyser.getByteFrequencyData(frequencyData);
+    // console.log(frequencyData);
+    for (let i = 0; i < frequencyBufferLength; i++) {
+      canvasContext.fillStyle = "purple";
+      canvasContext.fillRect(
+        i * barWidth,
+        canvas.height - frequencyData[i],
+        barWidth - 1,
+        frequencyData[i]
+      );
+    }
   }
+  drawMusic();
 }

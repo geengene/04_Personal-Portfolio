@@ -24,7 +24,11 @@
         <h2 class="musicName">Kuah Gene Qhee</h2>
         <h4 class="musicSubtitle">Web Developer</h4>
         <audio id="song">
-          <source src="../public/assets/trance.wav" type="audio/wav" />
+          <source
+            src="../public/assets/trance.wav"
+            type="audio/wav"
+            id="audio"
+          />
         </audio>
         <input type="range" value="0" id="progress" />
         <div class="musicControls">
@@ -38,8 +42,7 @@
         </div>
       </div>
       <div class="audioWaveContainer">
-        <!-- <input type="file" accept="audio/*" id="audioWave" /> -->
-        <canvas id="canvas"></canvas>
+        <canvas id="musicCanvas"></canvas>
       </div>
     </div>
     <script src="./index.js"></script>
