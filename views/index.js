@@ -16,7 +16,7 @@ function playPause() {
     song.play();
     setInterval(() => {
       progress.value = song.currentTime;
-    }, 500);
+    }, 50);
     play.classList.remove("fa-circle-play");
     play.classList.add("fa-circle-pause");
   }
@@ -30,7 +30,7 @@ document.addEventListener("keydown", (e) => {
       song.play();
       setInterval(() => {
         progress.value = song.currentTime;
-      }, 500);
+      }, 50);
     } else {
       song.pause();
     }
@@ -73,11 +73,11 @@ song.addEventListener("playing", async () => {
 
 function visualise(audioBuffer, audioContext, song) {
   const canvas = document.getElementById("musicCanvas");
-  canvas.width = canvas.clientWidth;
-  canvas.height = canvas.clientHeight;
+  // canvas.width = 200;
+  // canvas.height = 100;
 
   const analyser = audioContext.createAnalyser();
-  analyser.fftSize = 32;
+  analyser.fftSize = 64;
   const frequencyBufferLength = analyser.frequencyBinCount;
   const frequencyData = new Uint8Array(frequencyBufferLength);
 
@@ -100,7 +100,7 @@ function visualise(audioBuffer, audioContext, song) {
       canvasContext.fillStyle = "purple";
       canvasContext.fillRect(
         i * barWidth,
-        canvas.height - frequencyData[i],
+        canvas.height - frequencyData[i] / 2,
         barWidth - 1,
         frequencyData[i]
       );
