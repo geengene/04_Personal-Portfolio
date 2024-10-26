@@ -27,8 +27,8 @@ html,
 body {
   scrollbar-color: #555 #2c2c2c; /* Thumb and track colors */
   scrollbar-width: thin; /* Thin scrollbar */
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
 }
@@ -46,37 +46,45 @@ body {
   z-index: -1;
   margin: 0;
   padding: 0;
-  font-size: 100%;
 }
 
 .mainContainer {
-  display: flex;
+  /* display: grid; */
   flex-direction: row;
   height: 100vh;
+  width: 100vw;
 }
 .leftContainer {
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto; */
   position: fixed;
   height: 100vh;
   border-style: solid;
   border-color: white;
-  width: 39%;
+  width: 35%;
 }
 
 .rightContainer {
   width: 70%;
   margin-left: 40%;
-  padding: 7vh;
+  padding-top: 7vh;
+  padding-left: 7vh;
   border-style: solid;
   border-color: white;
   overflow-y: auto;
   height: 100vh;
 }
+.musicContainer,
+.navigationContainer {
+  grid-column: span 1;
+}
 .musicContainer {
   position: fixed;
   margin-top: 7vh;
   margin-left: 7vh;
-  height: 62vh;
-  width: 38vh;
+  height: 60%;
+  width: 22%;
   border-radius: 30px;
   overflow: hidden;
   border-color: #96e2d6;
@@ -87,6 +95,8 @@ body {
 
 .musicImage {
   position: relative;
+  /* height: 50%;
+  width: 86%; */
   margin-top: 7%;
   margin-left: 7%;
   margin-right: 7%;
@@ -162,6 +172,8 @@ body {
 }
 
 .navigationContainer {
+  border-style: solid;
+  border-color: white;
   position: fixed;
   top: 7vh;
   left: 25%;
@@ -173,12 +185,14 @@ body {
 }
 
 .audioWaveContainer {
+  grid-column: 1/-1;
+  border-color: white;
+  border-style: solid;
   position: fixed;
   margin-top: 70vh;
   margin-left: 8vh;
 }
 #musicCanvas {
-  display: block;
   height: 30%;
   width: 65%;
   /* border-style: solid; */
