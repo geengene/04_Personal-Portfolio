@@ -16,7 +16,7 @@ function playPause() {
     song.play();
     setInterval(() => {
       progress.value = song.currentTime;
-    }, 50);
+    }, 500);
     play.classList.remove("fa-circle-play");
     play.classList.add("fa-circle-pause");
   }
