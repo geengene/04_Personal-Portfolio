@@ -44,8 +44,6 @@ body {
   background-attachment: fixed;
   aspect-ratio: 16/9;
   z-index: -1;
-  margin: 0;
-  padding: 0;
   height: 100vh;
   width: 100vw;
 }
@@ -71,8 +69,9 @@ body {
   width: 65vw;
   height: 100vh;
   margin-left: 35vw;
-  padding-top: 7vh;
-  padding-left: 7vh;
+  padding-top: 8vh;
+  padding-left: 10vh;
+  padding-right: 10vh;
   border-style: solid;
   border-color: white;
   overflow-y: auto;
@@ -85,11 +84,11 @@ body {
 
 .musicContainer {
   position: fixed;
-  margin-top: 7vh;
-  margin-left: 7vh;
+  margin-top: 10vh;
+  margin-left: 10vh;
   height: 60vh;
   width: 20vw;
-  border-radius: 30px;
+  border-radius: 20px;
   overflow: hidden;
   border-color: #96e2d6;
   border-style: solid;
@@ -176,11 +175,11 @@ body {
 }
 
 .navigationContainer {
-  border-style: solid;
-  border-color: white;
+  /* border-style: solid;
+  border-color: white; */
   position: fixed;
-  margin-top: 7vh;
-  margin-left: 25vw;
+  margin-top: 11vh;
+  margin-left: 27vw;
   font-size: 120%;
   color: #8ab3f9;
 }
@@ -193,27 +192,45 @@ body {
   border-color: white;
   border-style: solid;
   position: fixed;
-  margin-top: 70vh;
-  margin-left: 8vh;
+  margin-top: 72vh;
+  margin-left: 11vh;
+  width: 11%;
 }
 #musicCanvas {
   height: 30%;
-  width: 65%;
-  /* border-style: solid; */
-  border-color: #96e2d6;
+  width: 100%;
+  margin-bottom: 0;
+  /* border-style: solid;
+  border-color: #96e2d6; */
 }
 
 .socialIcons {
   position: relative;
   display: flex;
-  margin-top: 1em;
+  margin-top: 0.5em;
   justify-content: left;
   align-items: center;
   cursor: pointer;
 }
 .socialIcons i {
-  margin-right: 0.6em;
+  margin-right: 0.5em;
 }
 .glitchText {
+  margin-top: 0;
   font-family: "Orbitron", serif;
+  font-size: 7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.subHeaderText {
+  font-size: 3rem;
+  font-family: "Fira Code", monospace;
+}
+.paragraphContainer {
+  background-color: #18182670;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: gray;
+  padding: 1em;
+  font-size: 1rem;
 }

@@ -30,7 +30,7 @@ document.addEventListener("keydown", (e) => {
       song.play();
       setInterval(() => {
         progress.value = song.currentTime;
-      }, 50);
+      }, 500);
     } else {
       song.pause();
     }
