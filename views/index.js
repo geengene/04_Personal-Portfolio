@@ -108,3 +108,22 @@ function visualise(audioBuffer, audioContext, song) {
   }
   drawMusic();
 }
+
+var homeTyped = new Typed(".subHeaderText.home", {
+  strings: ["Gene"],
+  typeSpeed: 100,
+  loop: false,
+  onComplete: (self) => {
+    setTimeout(() => {
+      self.cursor.remove();
+    }, 1500);
+  },
+});
+
+var aboutTyped = new Typed(".subHeaderText.about", {
+  strings: ["a Developer", "a Designer", "an Artist"],
+  typeSpeed: 150,
+  backSpeed: 100,
+  smartBackspace: true,
+  loop: true,
+});

@@ -216,7 +216,7 @@ body {
   margin-right: 0.5em;
 }
 
-.HomeContainer {
+.homeContainer {
   height: 100vh;
 }
 
@@ -309,18 +309,18 @@ body {
   }
 }
 
-.subHeaderText {
+.aboutContainer {
+  height: 100vh;
+}
+
+.subHeaderTextContainer {
   font-size: 3rem;
   font-weight: bold;
-  font-family: "Fira Code", monospace;
   color: #8ab3f9;
 }
-.subHeaderText.static {
+
+.subHeaderText:first-child {
   color: white;
-}
-.subHeaderText.dynamic::before {
-  content: "";
-  position: absolute;
 }
 .paragraphContainer {
   background-color: #18182670;
