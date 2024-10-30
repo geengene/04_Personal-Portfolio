@@ -231,7 +231,7 @@ body {
     -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
     0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
 
-  animation: glitch 500ms infinite;
+  animation: glitch 1000ms infinite;
 }
 
 .glitchText span {
@@ -242,7 +242,7 @@ body {
 }
 
 .glitchText span:first-child {
-  animation: glitch 650ms infinite;
+  animation: glitch 1650ms infinite;
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
   transform: translate(-0.025em, -0.0125em);
   /* color: green; */
@@ -250,7 +250,7 @@ body {
 }
 
 .glitchText span:last-child {
-  animation: glitch 375ms infinite;
+  animation: glitch 875ms infinite;
   clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
   transform: translate(0.0125em, 0.025em);
   /* color: red; */
@@ -259,7 +259,7 @@ body {
 
 /* https://web.dev/prefers-reduced-motion/#(bonus)-forcing-reduced-motion-on-all-websites */
 
-@keyframes glitchText {
+@keyframes glitch {
   0% {
     text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
       -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
