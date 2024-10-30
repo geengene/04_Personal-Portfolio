@@ -311,7 +311,16 @@ body {
 
 .subHeaderText {
   font-size: 3rem;
+  font-weight: bold;
   font-family: "Fira Code", monospace;
+  color: #8ab3f9;
+}
+.subHeaderText.static {
+  color: white;
+}
+.subHeaderText.dynamic::before {
+  content: "";
+  position: absolute;
 }
 .paragraphContainer {
   background-color: #18182670;
