@@ -190,7 +190,7 @@ body {
 .audioWaveContainer {
   grid-column: 1/-1;
   border-color: white;
-  border-style: solid;
+  /* border-style: solid; */
   position: fixed;
   margin-top: 72vh;
   margin-left: 11vh;
@@ -316,13 +316,15 @@ body {
 .subHeaderTextContainer {
   font-size: 3rem;
   font-weight: bold;
-  color: #8ab3f9;
+  color: #96e2d6;
+  margin-bottom: 1rem;
 }
 
 .subHeaderText:first-child {
   color: white;
 }
-.paragraphContainer {
+.paragraphContainer,
+.paragraphContainerAbout {
   background-color: #18182670;
   border-radius: 20px;
   border-style: solid;
@@ -330,4 +332,7 @@ body {
   padding: 1em;
   font-size: 1rem;
   text-align: justify;
+}
+.paragraphContainerAbout {
+  margin-right: 15vw;
 }

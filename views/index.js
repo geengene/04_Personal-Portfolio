@@ -110,20 +110,20 @@ function visualise(audioBuffer, audioContext, song) {
 }
 
 var homeTyped = new Typed(".subHeaderText.home", {
-  strings: ["Gene"],
-  typeSpeed: 100,
+  strings: ["Gene."],
+  typeSpeed: 150,
   loop: false,
   onComplete: (self) => {
     setTimeout(() => {
       self.cursor.remove();
-    }, 1500);
+    }, 2500);
   },
 });
 
 var aboutTyped = new Typed(".subHeaderText.about", {
-  strings: ["a Developer", "a Designer", "an Artist"],
-  typeSpeed: 150,
-  backSpeed: 100,
+  strings: ["Driven.", "Passionate.", "Adaptive.", "Open-minded.", "Curious."],
+  typeSpeed: 100,
+  backSpeed: 50,
   smartBackspace: true,
   loop: true,
 });
