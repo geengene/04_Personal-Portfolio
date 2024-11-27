@@ -16,7 +16,7 @@ function playPause() {
     song.play();
     setInterval(() => {
       progress.value = song.currentTime;
-    }, 500);
+    }, 1000);
     play.classList.remove("fa-circle-play");
     play.classList.add("fa-circle-pause");
   }
@@ -30,7 +30,7 @@ document.addEventListener("keydown", (e) => {
       song.play();
       setInterval(() => {
         progress.value = song.currentTime;
-      }, 500);
+      }, 1000);
     } else {
       song.pause();
     }
