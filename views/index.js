@@ -127,3 +127,9 @@ var aboutTyped = new Typed(".subHeaderText.about", {
   smartBackspace: true,
   loop: true,
 });
+
+var projectsTyped = new Typed(".subHeaderText.projects", {
+  strings: ["An Overview."],
+  typeSpeed: 100,
+  loop: true,
+});

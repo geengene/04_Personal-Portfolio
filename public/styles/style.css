@@ -60,18 +60,18 @@ body {
   grid-template-rows: auto auto; */
   position: fixed;
   height: 100vh;
-  width: 35vw;
+  width: 32vw;
   /* border-style: solid; */
   border-color: white;
 }
 
 .rightContainer {
-  width: 65vw;
+  width: 68vw;
   height: 100vh;
-  margin-left: 35vw;
+  margin-left: 32vw;
   padding-top: 8vh;
-  padding-left: 10vh;
-  padding-right: 10vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
   /* border-style: solid; */
   border-color: white;
   overflow-y: auto;
@@ -335,4 +335,14 @@ body {
 }
 .paragraphContainerAbout {
   margin-right: 15vw;
+}
+
+.projectsContainer {
+  height: 100vh;
+}
+
+.cardImg {
+  max-height: 50px;
+  max-width: 50px;
+  object-fit: cover;
 }
