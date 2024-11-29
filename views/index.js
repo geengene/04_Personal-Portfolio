@@ -133,3 +133,34 @@ var projectsTyped = new Typed(".subHeaderText.projects", {
   typeSpeed: 100,
   loop: true,
 });
+
+let swiperCards = new Swiper(".cardContent", {
+  loop: true,
+  spaceBetween: 32,
+  grabCursor: true,
+
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  mousewheel: {
+    invert: false,
+    forceToAxis: true,
+    sensitivity: 0.5,
+  },
+
+  breakpoints: {
+    600: {
+      slidesPerView: 2,
+    },
+    968: {
+      slidesPerView: 3,
+    },
+  },
+});

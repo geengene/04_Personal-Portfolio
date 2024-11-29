@@ -341,7 +341,7 @@ body {
   text-align: justify;
 }
 .paragraphContainerAbout {
-  margin-right: 15vw;
+  /* margin-right: 15vw; */
 }
 
 .projectsContainer {
@@ -352,7 +352,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100%; */
+  height: 50%;
 }
 .cardContainer {
   padding-block: 5rem;
@@ -368,10 +368,12 @@ body {
   overflow: hidden;
 }
 .cardImage {
+  display: flex;
   position: relative;
   background-color: var(--paragraphColor);
   padding-top: 1.5rem;
   margin-bottom: 0.75rem;
+  justify-content: center;
 }
 .cardData {
   background-color: #000000;
@@ -387,4 +389,41 @@ body {
   position: relative;
   z-index: 5;
   object-fit: cover;
+}
+.cardShadow {
+  width: 200px;
+  height: 200px;
+  background-color: #000000;
+  border-radius: 50%;
+  position: absolute;
+  top: 3.7rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  filter: blur(45px);
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: "";
+}
+.swiper-button-next,
+.swiper-button-prev {
+  width: initial;
+  height: initial;
+  font-size: 3rem;
+  color: var(--primary-color);
+  /* display: none; */
+}
+.swiper-button-prev {
+  left: 0;
+}
+.swiper-button-next {
+  right: 0;
+}
+.swiper-pagination-bullet {
+  background-color: var(--dim-color);
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--primary-color);
 }
