@@ -150,6 +150,7 @@ let swiperCards = new Swiper(".cardContent", {
     prevEl: ".swiper-button-prev",
   },
   mousewheel: {
+    enabled: true,
     invert: false,
     forceToAxis: true,
     sensitivity: 0.5,
