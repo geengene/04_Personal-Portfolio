@@ -109,6 +109,58 @@ function visualise(audioBuffer, audioContext, song) {
   drawMusic();
 }
 
+// Get all the navigation links
+const navLinks = document.querySelectorAll("nav a");
+
+// Add an event listener to each link
+navLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    // Prevent the default link behavior
+    e.preventDefault();
+
+    // Get the href attribute of the link
+    const href = link.getAttribute("href");
+
+    // Get the element with the corresponding ID
+    const section = document.querySelector(href);
+
+    // Scroll to the section
+    section.scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+// Add an event listener to the window to check the scroll position
+window.addEventListener("scroll", () => {
+  // Get the current scroll position
+  const scrollPosition = window.scrollY;
+
+  // Get the offset top of each section
+  const sectionOffsets = Array.from(document.querySelectorAll("div[id]")).map(
+    (section) => section.offsetTop
+  );
+
+  // Loop through the navigation links
+  navLinks.forEach((link, index) => {
+    // Get the href attribute of the link
+    const href = link.getAttribute("href");
+
+    // Get the corresponding section
+    const section = document.querySelector(href);
+
+    // Check if the section is in view
+    if (
+      scrollPosition >= sectionOffsets[index] - 100 &&
+      scrollPosition < sectionOffsets[index + 1] - 100
+    ) {
+      // Add the active class to the link
+      link.classList.add("active");
+    } else {
+      // Remove the active class from the link
+      link.classList.remove("active");
+    }
+  });
+});
+
 var homeTyped = new Typed(".subHeaderText.home", {
   strings: ["Gene."],
   typeSpeed: 150,

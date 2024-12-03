@@ -60,6 +60,7 @@ body {
   flex-direction: row;
   height: 100vh;
   width: 100vw;
+  padding-top: 10vh;
 }
 .leftContainer {
   /* display: grid;
@@ -91,7 +92,7 @@ body {
 
 .musicContainer {
   position: fixed;
-  margin-top: 10vh;
+  /* margin-top: 10vh; */
   margin-left: 10vh;
   height: 60vh;
   width: 20vw;
@@ -185,13 +186,22 @@ body {
   /* border-style: solid;
   border-color: white; */
   position: fixed;
-  margin-top: 11vh;
+  margin-top: 1vh;
   margin-left: 27vw;
-  font-size: 120%;
+  font-size: 1.5rem;
+}
+.navigationContainer li {
+  list-style: none;
+  margin-bottom: 30%;
+}
+.navigationContainer a {
+  text-decoration: none;
   color: var(--dim-color);
 }
-.navigationContainer h3 {
-  margin-bottom: 30%;
+/* Add a class to highlight the active link */
+nav a.active {
+  color: #23527c;
+  border-bottom: 2px solid #23527c;
 }
 
 .audioWaveContainer {
@@ -199,7 +209,7 @@ body {
   border-color: white;
   /* border-style: solid; */
   position: fixed;
-  margin-top: 72vh;
+  margin-top: 62vh;
   margin-left: 11vh;
   width: 11%;
 }
