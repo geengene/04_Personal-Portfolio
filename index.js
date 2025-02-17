@@ -12,7 +12,7 @@ song.onloadedmetadata = function () {
 song.onpause = function () {
   document.getElementById("gif").hidden = false;
   document.getElementById("musicCanvas").hidden = true;
-  document.getElementById("gif").src = "../public/assets/coding.gif";
+  document.getElementById("gif").src = "./public/assets/coding.gif";
 };
 song.onplay = function () {
   document.getElementById("gif").hidden = true;

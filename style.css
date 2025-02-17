@@ -44,7 +44,7 @@ body {
   color: white;
   font-family: "JetBrains Mono", monospace;
   background-image: linear-gradient(135deg, #000000, #3b1f89b5),
-    url("../assets/body_background.jpg");
+    url("./public/assets/body_background.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -111,7 +111,7 @@ body {
   margin-bottom: 4%;
   border-radius: 15px;
   overflow: hidden;
-  background-image: url("../assets/wanderlust_by_erisiar_ddzdf96-414w-2x.jpg");
+  background-image: url("./public/assets/wanderlust_by_erisiar_ddzdf96-414w-2x.jpg");
   background-position: center;
   aspect-ratio: 1/1;
   background-size: cover;
