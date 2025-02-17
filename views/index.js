@@ -109,7 +109,6 @@ function visualise(audioBuffer, audioContext, song) {
   drawMusic();
 }
 
-// Get all the navigation links
 const navLinks = document.querySelectorAll("nav a");
 
 // Add an event listener to each link

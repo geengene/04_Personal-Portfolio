@@ -56,28 +56,25 @@ body {
 }
 
 .mainContainer {
-  /* display: grid; */
-  flex-direction: row;
   height: 100vh;
   width: 100vw;
-  padding-top: 10vh;
 }
 .leftContainer {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto; */
+  display: flex;
+  flex-direction: column;
   position: fixed;
   height: 100vh;
-  width: 32vw;
+  width: 35vw;
   /* border-style: solid; */
   border-color: white;
+  padding-top: 10vh;
 }
 
 .rightContainer {
-  width: 68vw;
+  width: 65vw;
   height: 100vh;
-  margin-left: 32vw;
-  padding-top: 8vh;
+  margin-left: 35vw;
+  padding-top: 10vh;
   padding-left: 5vw;
   padding-right: 5vw;
   /* border-style: solid; */
@@ -94,23 +91,24 @@ body {
   position: fixed;
   /* margin-top: 10vh; */
   margin-left: 10vh;
-  height: 60vh;
-  width: 20vw;
+  height: fit-content;
+  width: fit-content;
   border-radius: 20px;
   overflow: hidden;
   border-color: var(--primary-color);
   border-style: solid;
   border-width: 3px;
   background-color: black;
+  padding-bottom: 20px;
 }
 
 .musicImage {
-  position: relative;
   /* height: 50%;
   width: 86%; */
   margin-top: 7%;
   margin-left: 7%;
   margin-right: 7%;
+  margin-bottom: 4%;
   border-radius: 15px;
   overflow: hidden;
   background-image: url("../assets/wanderlust_by_erisiar_ddzdf96-414w-2x.jpg");
@@ -120,15 +118,6 @@ body {
   background-repeat: no-repeat;
 }
 
-.musicText {
-  position: relative;
-  color: lightgray;
-  font-size: 1em;
-  margin-top: 5%;
-  margin-left: 7%;
-  margin-right: 7%;
-  margin-bottom: 0;
-}
 .musicName {
   position: relative;
   color: var(--primary-color);
@@ -183,8 +172,6 @@ body {
 }
 
 .navigationContainer {
-  /* border-style: solid;
-  border-color: white; */
   position: fixed;
   margin-top: 1vh;
   margin-left: 27vw;
@@ -205,20 +192,17 @@ nav a.active {
 }
 
 .audioWaveContainer {
-  grid-column: 1/-1;
-  border-color: white;
-  /* border-style: solid; */
-  position: fixed;
-  margin-top: 62vh;
-  margin-left: 11vh;
-  width: 11%;
+  margin-top: 53vh;
+  margin-left: 10vh;
+  width: fit-content;
 }
 #musicCanvas {
-  height: 30%;
-  width: 100%;
-  margin-bottom: 0;
-  /* border-style: solid;
-  border-color: var(--primary-color); */
+  height: 100px;
+  width: 170px;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 15px;
+  border-color: var(--primary-color);
 }
 
 .socialIcons {
@@ -228,6 +212,7 @@ nav a.active {
   justify-content: left;
   align-items: center;
   cursor: pointer;
+  width: fit-content;
 }
 .socialIcons i {
   margin-right: 0.5em;
@@ -509,4 +494,14 @@ nav a.active {
 }
 .swiper-pagination-bullet-active {
   background-color: var(--primary-color);
+}
+
+.resumeContainer {
+  height: 100vh;
+}
+.resumeContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
