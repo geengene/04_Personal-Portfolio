@@ -2,9 +2,21 @@ let progress = document.getElementById("progress");
 let song = document.getElementById("song");
 let play = document.getElementById("play");
 
+document.getElementById("gif").hidden = false;
+document.getElementById("musicCanvas").hidden = true;
 song.onloadedmetadata = function () {
   progress.max = song.duration;
   progress.value = song.currentTime;
+};
+
+song.onpause = function () {
+  document.getElementById("gif").hidden = false;
+  document.getElementById("musicCanvas").hidden = true;
+  document.getElementById("gif").src = "../public/assets/coding.gif";
+};
+song.onplay = function () {
+  document.getElementById("gif").hidden = true;
+  document.getElementById("musicCanvas").hidden = false;
 };
 
 function playPause() {
@@ -54,7 +66,6 @@ song.addEventListener("playing", async () => {
 
     const reader = new FileReader();
     reader.addEventListener("load", (e) => {
-      // console.log(e);
       const arrayBuffer = e.target.result;
       const audioContext = new (window.AudioContext ||
         window.webkitAudioContext)();
@@ -149,13 +160,13 @@ var aboutTyped = new Typed(".subHeaderText.about", {
 
 var projectsTyped = new Typed(".subHeaderText.projects", {
   strings: ["An Overview."],
-  typeSpeed: 100,
+  typeSpeed: 150,
   loop: true,
 });
 
 let swiperCards = new Swiper(".cardContent", {
   loop: true,
-  spaceBetween: 32,
+  spaceBetween: 20,
   grabCursor: true,
 
   pagination: {
