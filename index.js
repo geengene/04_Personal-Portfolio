@@ -181,6 +181,86 @@ const progress = document.getElementById("progress");
 const gif = document.getElementById("gif");
 const canvas = document.getElementById("musicCanvas");
 const ctx = canvas.getContext("2d");
+const musicName = document.querySelector(".musicName");
+const musicSubtitle = document.querySelector(".musicSubtitle");
+const listItems = document.querySelectorAll(".songSelectionContainer ol li");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+document.querySelectorAll(".songSelectionContainer ol li").forEach((li) => {
+  li.addEventListener("click", function () {
+    const src = this.getAttribute("data-src");
+    const audioSource = song.querySelector("source");
+    if (audioSource.src.endsWith(src)) {
+      console.log(src);
+      song.currentTime = 0;
+      song.play();
+      return;
+    }
+    audioSource.src = src;
+    song.load();
+    song.play();
+  });
+});
+
+function playSongByIndex(index) {
+  const li = listItems[index];
+  if (!li) return;
+
+  const src = li.getAttribute("data-src");
+  const audioSource = song.querySelector("source");
+
+  if (audioSource.src.endsWith(src.replace("./", ""))) {
+    song.currentTime = 0;
+    song.play();
+    return;
+  }
+
+  audioSource.src = src;
+  song.load();
+  song.play();
+}
+
+function getCurrentSongIndex() {
+  const currentSrc = song.querySelector("source").src;
+  const currentIndex = Array.from(listItems).findIndex((item) => {
+    const dataSrc = item.getAttribute("data-src").replace("./", "");
+    return currentSrc.endsWith(dataSrc);
+  });
+  return currentIndex > -1 ? currentIndex : 0;
+}
+
+nextBtn.addEventListener("click", () => {
+  const currentIndex = getCurrentSongIndex();
+  const nextIndex = (currentIndex + 1) % listItems.length;
+  playSongByIndex(nextIndex);
+});
+
+prevBtn.addEventListener("click", () => {
+  const currentIndex = getCurrentSongIndex();
+  const prevIndex = (currentIndex - 1 + listItems.length) % listItems.length;
+  playSongByIndex(prevIndex);
+});
+
+listItems.forEach((li, index) => {
+  li.addEventListener("click", () => {
+    playSongByIndex(index);
+  });
+});
+
+song.addEventListener("playing", function () {
+  const currentSrc = song.querySelector("source").src;
+  listItems.forEach((item) => {
+    const dataSrc = item.getAttribute("data-src");
+    if (currentSrc.endsWith(dataSrc.replace("./", ""))) {
+      item.classList.add("playing");
+      musicName.textContent = item.textContent;
+      musicSubtitle.textContent = "by Gene";
+    } else {
+      item.classList.remove("playing");
+    }
+  });
+});
 
 let audioContext, analyser, source, animationId;
 
@@ -205,7 +285,7 @@ function drawMusic() {
   for (let i = 0; i < bufferLength; i++) {
     ctx.fillStyle = "#bd00ff";
     const x = i * barWidth;
-    const barHeight = (dataArray[i] / 255) * canvas.height;
+    const barHeight = (dataArray[i] / 255) * canvas.height * 0.9;
     ctx.fillRect(
       x,
       canvas.height - barHeight,

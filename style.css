@@ -1,6 +1,6 @@
 /* WebKit Browsers (Chrome, Safari, Edge) */
 :root {
-  --primary-color: #96e2d6;
+  --primary-color: #8ae0d3;
   --highlight-color: #f5c1e7;
   --dim-color: #8ab3f9;
   --paragraphColor: #18182670;
@@ -77,18 +77,20 @@ body {
 .leftContainer {
   display: flex;
   flex-direction: column;
+  gap: 15px;
   position: fixed;
   height: 100vh;
-  width: 35vw;
+  width: 40vw;
   /* border-style: solid; */
   border-color: white;
   padding-top: 10vh;
+  /* border: solid; */
 }
 
 .rightContainer {
-  width: 65vw;
+  width: 60vw;
   height: 100vh;
-  margin-left: 35vw;
+  margin-left: 40vw;
   padding-top: 10vh;
   padding-left: 5vw;
   padding-right: 5vw;
@@ -97,17 +99,21 @@ body {
   overflow-y: auto;
 }
 
+.leftTopContainer {
+  display: flex;
+}
+
 .musicContainer,
 .navigationContainer {
   grid-column: span 1;
 }
 
 .musicContainer {
-  position: fixed;
+  /* position: fixed; */
   /* margin-top: 10vh; */
   margin-left: 10vh;
   height: fit-content;
-  width: fit-content;
+  width: 340px;
   border-radius: 20px;
   overflow: hidden;
   border-color: var(--primary-color);
@@ -136,7 +142,7 @@ body {
 .musicName {
   position: relative;
   color: var(--primary-color);
-  font-size: 1.8rem;
+  font-size: 2rem;
   white-space: nowrap;
   margin-left: 7%;
   margin-right: 7%;
@@ -146,7 +152,7 @@ body {
 .musicSubtitle {
   position: relative;
   color: var(--primary-color);
-  font-size: 1.3em;
+  font-size: 1.3rem;
   margin-left: 7%;
   margin-right: 7%;
   white-space: nowrap;
@@ -190,7 +196,6 @@ body {
   position: fixed;
   margin-top: 1vh;
   margin-left: 460px;
-  font-size: 1.5rem;
 }
 .navigationContainer li {
   list-style: none;
@@ -198,55 +203,112 @@ body {
 }
 .navigationContainer ul li a {
   text-decoration: none;
+  font-size: 1.3rem;
   color: var(--dim-color);
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s, font-size 0.3s, transform 0.3s;
   transform: scale(1); /* Add this line */
   transform-origin: left center; /* Add this line for better scaling */
 }
 .navigationContainer ul li a.active {
   color: var(--primary-color);
+  font-size: 1.7rem;
   transform: scale(1.25);
   z-index: 1;
 }
 
-.audioWaveContainer {
-  margin-top: 53vh;
+.leftBottomContainer {
   margin-left: 10vh;
+  display: flex;
+  height: 100px;
+  width: fit-content;
+}
+
+.audioWaveContainer {
   width: fit-content;
 }
 #musicCanvas {
   height: 100px;
-  width: 170px;
+  width: 165px;
   border-style: solid;
-  border-width: 3px;
+  border-width: 2px;
   border-radius: 15px;
   border-color: var(--primary-color);
 }
 #gif {
   height: 100px;
-  width: 170px;
+  width: 165px;
   border-style: solid;
-  border-width: 3px;
+  border-width: 2px;
   border-radius: 15px;
   border-color: var(--primary-color);
+}
+
+.songSelectionContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.7rem;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 15px;
+  border-color: var(--primary-color);
+  height: 100px;
+  width: 165px;
+  margin-left: 8px;
+  text-overflow: ellipsis;
+}
+
+.songSelectionContainer ol {
+  margin-top: 5px;
+  background-color: var(--paragraphColor);
+}
+.songSelectionContainer ol li {
+  margin-bottom: 2px;
+  margin-left: 2rem;
+  font-size: 0.75rem;
+  transition: font-size 0.1s ease-in-out;
+  color: var(--dim-color);
+}
+.songSelectionContainer ol li:hover {
+  cursor: pointer;
+  font-size: 0.77rem;
+  color: var(--primary-color);
+}
+.songSelectionContainer ol li.playing {
+  color: var(--primary-color);
+  font-size: 0.77rem;
+}
+.songSelectionContainer p {
+  font-size: 1rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.1rem;
+  padding-top: 0.1rem;
+  background-color: black;
+  z-index: -2;
+}
+.songSelectionContainer hr {
+  border: none;
+  border-top: 2px solid var(--primary-color);
+  margin-bottom: 0.2rem;
 }
 
 .socialIcons {
   position: relative;
   display: flex;
-  margin-top: 0.5em;
-  justify-content: left;
+  margin-left: 10vh;
+  justify-content: space-between;
   align-items: center;
+  height: 40px;
+  width: 340px;
+  cursor: default;
+  padding: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 15px;
+  border-color: var(--primary-color);
+}
+.socialIcons i:hover {
   cursor: pointer;
-  width: fit-content;
 }
-.socialIcons i {
-  margin-right: 0.5em;
-}
-
-/* .homeContainer {
-  height: 100vh;
-} */
 
 .glitchText {
   position: relative;

@@ -35,7 +35,7 @@
         <div class="leftTopContainer">
           <div class="musicContainer">
             <div class="musicImage"></div>
-            <h2 class="musicName">Kuah Gene Qhee</h2>
+            <h2 class="musicName">Gene</h2>
             <h4 class="musicSubtitle">Developer</h4>
             <audio id="song">
               <source
@@ -47,51 +47,72 @@
             <input type="range" value="0" id="progress" />
             <div class="musicControls">
               <div><i class="fa-solid fa-shuffle fa-xl"></i></div>
-              <div><i class="fa-solid fa-backward-step fa-2xl"></i></div>
+              <div>
+                <i class="fa-solid fa-backward-step fa-2xl" id="prevBtn"></i>
+              </div>
               <div onclick="playPause()">
                 <i class="fa-solid fa-circle-play fa-3x" id="play"></i>
               </div>
-              <div><i class="fa-solid fa-forward-step fa-2xl"></i></div>
+              <div>
+                <i class="fa-solid fa-forward-step fa-2xl" id="nextBtn"></i>
+              </div>
               <div><i class="fa-solid fa-repeat fa-xl"></i></div>
             </div>
           </div>
           <nav class="navigationContainer">
             <ul>
-              <li><a href="#about">About</a></li>
+              <li><a href="#about" class="active">About</a></li>
               <li><a href="#resume">Experience</a></li>
               <li><a href="#projects">Projects</a></li>
             </ul>
           </nav>
         </div>
-        <div class="audioWaveContainer">
-          <canvas id="musicCanvas" hidden></canvas>
-          <img id="gif" src="./public/assets/coding.gif" alt="gif" />
-          <div class="socialIcons">
-            <div>
-              <a href="https://www.linkedin.com/in/kuahgeneqhee/">
-                <i class="fa-brands fa-linkedin fa-xl" style="color: gray"></i>
-              </a>
-            </div>
-            <div>
-              <a href="https://www.youtube.com/@g66n">
-                <i class="fa-brands fa-youtube fa-xl" style="color: gray"></i>
-              </a>
-            </div>
-            <div>
-              <a href="https://github.com/geengene">
-                <i class="fa-brands fa-github fa-xl" style="color: gray"></i>
-              </a>
-            </div>
-            <div>
-              <a href="https://www.instagram.com/geen._.gene/">
-                <i class="fa-brands fa-instagram fa-xl" style="color: gray"></i>
-              </a>
-            </div>
-            <div>
-              <a href="mailto:kgqgene@gmail.com">
-                <i class="fa-regular fa-envelope fa-xl" style="color: gray"></i>
-              </a>
-            </div>
+        <div class="leftBottomContainer">
+          <div class="audioWaveContainer">
+            <canvas id="musicCanvas" hidden></canvas>
+            <img id="gif" src="./public/assets/coding.gif" alt="gif" />
+          </div>
+          <div class="songSelectionContainer">
+            <p>Tracks:</p>
+            <hr />
+            <ol>
+              <li data-src="./public/assets/trance2.wav">Trance</li>
+              <li data-src="./public/assets/boopity_chiptunes.wav">
+                Chiptunes
+              </li>
+              <li data-src="./public/assets/oggsford.wav">Oggsford</li>
+            </ol>
+          </div>
+        </div>
+        <div class="socialIcons">
+          <div>
+            <a href="https://www.linkedin.com/in/kuahgeneqhee/">
+              <i class="fa-brands fa-linkedin fa-xl" style="color: gray"></i>
+            </a>
+          </div>
+          <p>–</p>
+          <div>
+            <a href="https://www.youtube.com/@g66n">
+              <i class="fa-brands fa-youtube fa-xl" style="color: gray"></i>
+            </a>
+          </div>
+          <p>–</p>
+          <div>
+            <a href="https://github.com/geengene">
+              <i class="fa-brands fa-github fa-xl" style="color: gray"></i>
+            </a>
+          </div>
+          <p>–</p>
+          <div>
+            <a href="https://www.instagram.com/geen._.gene/">
+              <i class="fa-brands fa-instagram fa-xl" style="color: gray"></i>
+            </a>
+          </div>
+          <p>–</p>
+          <div>
+            <a href="mailto:kgqgene@gmail.com">
+              <i class="fa-regular fa-envelope fa-xl" style="color: gray"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -110,7 +131,7 @@
           </div>
           <div class="paragraphContainerAbout">
             <p style="margin-bottom: 1em">
-              Hi! I'm currently a Year 1 undergraduate at the National
+              Hi! I'm Gene, currently a Year 1 undergraduate at the National
               University of Singapore, studying Computer Science.
             </p>
             <p style="margin-bottom: 1em">
