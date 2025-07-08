@@ -201,14 +201,16 @@ function drawMusic() {
   const dataArray = new Uint8Array(bufferLength);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   analyser.getByteFrequencyData(dataArray);
-  const barWidth = canvas.width / bufferLength;
+  const barWidth = canvas.width / bufferLength + 8;
   for (let i = 0; i < bufferLength; i++) {
     ctx.fillStyle = "#bd00ff";
+    const x = i * barWidth;
+    const barHeight = (dataArray[i] / 255) * canvas.height;
     ctx.fillRect(
-      i * barWidth,
-      canvas.height - dataArray[i] / 2,
-      barWidth - 1,
-      dataArray[i]
+      x,
+      canvas.height - barHeight,
+      barWidth, // use full barWidth for no gaps
+      barHeight
     );
   }
   animationId = requestAnimationFrame(drawMusic);
