@@ -181,14 +181,17 @@ body {
   list-style: none;
   margin-bottom: 30%;
 }
-.navigationContainer a {
+.navigationContainer ul li a {
   text-decoration: none;
   color: var(--dim-color);
+  transition: color 0.3s, transform 0.3s;
+  transform: scale(1); /* Add this line */
+  transform-origin: left center; /* Add this line for better scaling */
 }
-/* Add a class to highlight the active link */
-nav a.active {
-  color: #23527c;
-  border-bottom: 2px solid #23527c;
+.navigationContainer ul li a.active {
+  color: var(--primary-color);
+  transform: scale(1.25);
+  z-index: 1;
 }
 
 .audioWaveContainer {

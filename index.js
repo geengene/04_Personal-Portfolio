@@ -56,7 +56,6 @@ progress.onchange = function () {
   play.classList.add("fa-circle-pause");
 };
 
-// Fetch and read audio file as ArrayBuffer when the song starts playing
 song.addEventListener("playing", async () => {
   const audioSrc = song.querySelector("source").src;
 
@@ -122,19 +121,14 @@ function visualise(audioBuffer, audioContext, song) {
 
 const navLinks = document.querySelectorAll("nav a");
 
-// Add an event listener to each link
 navLinks.forEach((link) => {
   link.addEventListener("click", (e) => {
-    // Prevent the default link behavior
     e.preventDefault();
 
-    // Get the href attribute of the link
     const href = link.getAttribute("href");
 
-    // Get the element with the corresponding ID
     const section = document.querySelector(href);
 
-    // Scroll to the section
     section.scrollIntoView({ behavior: "smooth" });
   });
 });
@@ -194,4 +188,13 @@ let swiperCards = new Swiper(".cardContent", {
       slidesPerView: 3,
     },
   },
+});
+
+document.querySelectorAll(".navigationContainer ul li a").forEach((link) => {
+  link.addEventListener("click", function () {
+    document
+      .querySelectorAll(".navigationContainer ul li a")
+      .forEach((l) => l.classList.remove("active"));
+    this.classList.add("active");
+  });
 });
