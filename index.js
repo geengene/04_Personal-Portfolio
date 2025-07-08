@@ -119,19 +119,19 @@
 //   drawMusic();
 // }
 
-var homeTyped = new Typed(".subHeaderText.home", {
-  strings: ["Gene."],
-  typeSpeed: 150,
-  loop: false,
-  onComplete: (self) => {
-    setTimeout(() => {
-      self.cursor.remove();
-    }, 2500);
-  },
-});
+// var homeTyped = new Typed(".subHeaderText.home", {
+//   strings: ["Gene."],
+//   typeSpeed: 150,
+//   loop: false,
+//   onComplete: (self) => {
+//     setTimeout(() => {
+//       self.cursor.remove();
+//     }, 2500);
+//   },
+// });
 
 var aboutTyped = new Typed(".subHeaderText.about", {
-  strings: ["Driven.", "Passionate.", "Adaptive.", "Open-minded.", "Curious."],
+  strings: ["Driven.", "Passionate.", "Adaptive.", "Curious."],
   typeSpeed: 100,
   backSpeed: 50,
   smartBackspace: true,
