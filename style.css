@@ -484,6 +484,11 @@ body {
 }
 #resumeLink {
   color: white;
-  border-bottom: white;
+  text-decoration: none;
+}
+
+#resumeLink:hover {
+  cursor: pointer;
+  color: var(--primary-color);
   text-decoration: none;
 }

@@ -34,21 +34,6 @@
 //   }
 // }
 
-// document.addEventListener("keydown", (e) => {
-//   if (e.key === " " || e.key === "Play" || e.key === "MediaPlayPause") {
-//     play.classList.toggle("fa-circle-pause");
-//     play.classList.toggle("fa-circle-play");
-//     if (song.paused) {
-//       song.play();
-//       setInterval(() => {
-//         progress.value = song.currentTime;
-//       }, 1000);
-//     } else {
-//       song.pause();
-//     }
-//   }
-// });
-
 // progress.onchange = function () {
 //   song.play();
 //   song.currentTime = progress.value;
@@ -185,7 +170,6 @@ const ctx = canvas.getContext("2d");
 
 let audioContext, analyser, source, animationId;
 
-// Setup visualizer once
 function setupVisualizer() {
   if (!audioContext) {
     audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -205,7 +189,7 @@ function drawMusic() {
   analyser.getByteFrequencyData(dataArray);
   const barWidth = canvas.width / bufferLength;
   for (let i = 0; i < bufferLength; i++) {
-    ctx.fillStyle = "#2196f3";
+    ctx.fillStyle = "#bd00ff";
     ctx.fillRect(
       i * barWidth,
       canvas.height - dataArray[i] / 2,
@@ -216,7 +200,6 @@ function drawMusic() {
   animationId = requestAnimationFrame(drawMusic);
 }
 
-// Play/Pause logic
 function playPause() {
   if (song.paused) {
     song.play();
@@ -225,7 +208,6 @@ function playPause() {
   }
 }
 
-// Progress bar update
 song.onloadedmetadata = function () {
   progress.max = song.duration;
   progress.value = song.currentTime;
@@ -237,7 +219,6 @@ progress.oninput = function () {
   song.currentTime = progress.value;
 };
 
-// Visualizer and GIF toggle
 song.onplay = function () {
   gif.hidden = true;
   canvas.hidden = false;
@@ -251,6 +232,17 @@ song.onpause = function () {
   play.className = "fa-solid fa-circle-play fa-3x";
   cancelAnimationFrame(animationId);
 };
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === " " || e.key === "Play" || e.key === "MediaPlayPause") {
+    e.preventDefault();
+    if (song.paused) {
+      song.play();
+    } else {
+      song.pause();
+    }
+  }
+});
 
 document.querySelectorAll(".navigationContainer ul li a").forEach((link) => {
   link.addEventListener("click", function (e) {
