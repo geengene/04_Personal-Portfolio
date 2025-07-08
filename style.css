@@ -346,9 +346,9 @@ body {
   font-size: 1rem;
   text-align: justify;
 }
-.paragraphContainerAbout {
-  /* margin-right: 15vw; */
-}
+/* .paragraphContainerAbout { */
+/* margin-right: 15vw; */
+/* } */
 
 .projectsContainer {
   height: 100vh;
