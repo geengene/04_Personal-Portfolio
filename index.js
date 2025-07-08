@@ -115,20 +115,34 @@
 //   },
 // });
 
+document.addEventListener("mousemove", (e) => {
+  const glow = document.getElementById("cursor-glow");
+  glow.style.left = `${e.clientX}px`;
+  glow.style.top = `${e.clientY}px`;
+});
+
 var aboutTyped = new Typed(".subHeaderText.about", {
   strings: ["Driven.", "Passionate.", "Adaptive.", "Curious."],
   typeSpeed: 100,
   backSpeed: 50,
   smartBackspace: true,
   loop: true,
+  backDelay: 3000,
 });
 
 var projectsTyped = new Typed(".subHeaderText.projects", {
   strings: ["An Overview."],
   typeSpeed: 150,
   loop: true,
+  backDelay: 10000,
 });
 
+var experienceTyped = new Typed(".subHeaderText.experience", {
+  strings: ["Work."],
+  typeSpeed: 150,
+  loop: true,
+  backDelay: 10000,
+});
 let swiperCards = new Swiper(".cardContent", {
   loop: true,
   spaceBetween: 20,
