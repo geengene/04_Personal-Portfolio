@@ -43,7 +43,7 @@ body {
   background-color: black;
   color: white;
   font-family: "JetBrains Mono", monospace;
-  background-image: linear-gradient(135deg, #000000, #3b1f89b5),
+  background-image: linear-gradient(135deg, #000000, #311973d8),
     url("./public/assets/body_background.jpg");
   background-position: center;
   background-size: cover;
