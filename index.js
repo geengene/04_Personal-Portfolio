@@ -1,120 +1,3 @@
-// let progress = document.getElementById("progress");
-// let song = document.getElementById("song");
-// let play = document.getElementById("play");
-
-// document.getElementById("gif").hidden = false;
-// document.getElementById("musicCanvas").hidden = true;
-// song.onloadedmetadata = function () {
-//   progress.max = song.duration;
-//   progress.value = song.currentTime;
-// };
-
-// song.onpause = function () {
-//   document.getElementById("gif").hidden = false;
-//   document.getElementById("musicCanvas").hidden = true;
-//   document.getElementById("gif").src = "./public/assets/coding.gif";
-// };
-// song.onplay = function () {
-//   document.getElementById("gif").hidden = true;
-//   document.getElementById("musicCanvas").hidden = false;
-// };
-
-// function playPause() {
-//   if (play.classList.contains("fa-circle-pause")) {
-//     song.pause();
-//     play.classList.remove("fa-circle-pause");
-//     play.classList.add("fa-circle-play");
-//   } else {
-//     song.play();
-//     setInterval(() => {
-//       progress.value = song.currentTime;
-//     }, 1000);
-//     play.classList.remove("fa-circle-play");
-//     play.classList.add("fa-circle-pause");
-//   }
-// }
-
-// progress.onchange = function () {
-//   song.play();
-//   song.currentTime = progress.value;
-//   play.classList.remove("fa-circle-play");
-//   play.classList.add("fa-circle-pause");
-// };
-
-// song.addEventListener("playing", async () => {
-//   const audioSrc = song.querySelector("source").src;
-
-//   try {
-//     const response = await fetch(audioSrc);
-//     const audioBlob = await response.blob();
-
-//     const reader = new FileReader();
-//     reader.addEventListener("load", (e) => {
-//       const arrayBuffer = e.target.result;
-//       const audioContext = new (window.AudioContext ||
-//         window.webkitAudioContext)();
-
-//       // convert arrayBuffer to audioBuffer using decodeAudioData
-//       audioContext.decodeAudioData(arrayBuffer, (audioBuffer) => {
-//         console.log(audioBuffer);
-//         visualise(audioBuffer, audioContext, song);
-//       });
-//     });
-//     reader.readAsArrayBuffer(audioBlob);
-//   } catch (error) {
-//     console.error("Error fetching and reading audio file:", error);
-//   }
-// });
-
-// function visualise(audioBuffer, audioContext, song) {
-//   const canvas = document.getElementById("musicCanvas");
-//   // canvas.width = 200;
-//   // canvas.height = 100;
-
-//   const analyser = audioContext.createAnalyser();
-//   analyser.fftSize = 64;
-//   const frequencyBufferLength = analyser.frequencyBinCount;
-//   const frequencyData = new Uint8Array(frequencyBufferLength);
-
-//   const source = audioContext.createMediaElementSource(song);
-//   source.connect(analyser);
-//   analyser.connect(audioContext.destination);
-//   const canvasContext = canvas.getContext("2d");
-
-//   canvasContext.fillStyle = "pink";
-//   canvasContext.fillRect(0, 0, canvas.width, canvas.height);
-//   console.log(canvas.width, canvas.height);
-//   const barWidth = canvas.width / frequencyBufferLength;
-
-//   function drawMusic() {
-//     requestAnimationFrame(drawMusic);
-//     canvasContext.clearRect(0, 0, canvas.width, canvas.height);
-//     analyser.getByteFrequencyData(frequencyData);
-//     // console.log(frequencyData);
-//     for (let i = 0; i < frequencyBufferLength; i++) {
-//       canvasContext.fillStyle = "purple";
-//       canvasContext.fillRect(
-//         i * barWidth,
-//         canvas.height - frequencyData[i] / 2,
-//         barWidth - 1,
-//         frequencyData[i]
-//       );
-//     }
-//   }
-//   drawMusic();
-// }
-
-// var homeTyped = new Typed(".subHeaderText.home", {
-//   strings: ["Gene."],
-//   typeSpeed: 150,
-//   loop: false,
-//   onComplete: (self) => {
-//     setTimeout(() => {
-//       self.cursor.remove();
-//     }, 2500);
-//   },
-// });
-
 document.addEventListener("mousemove", (e) => {
   const glow = document.getElementById("cursor-glow");
   glow.style.left = `${e.clientX}px`;
@@ -145,7 +28,7 @@ var experienceTyped = new Typed(".subHeaderText.experience", {
 });
 let swiperCards = new Swiper(".cardContent", {
   loop: true,
-  spaceBetween: 20,
+  spaceBetween: 10,
   grabCursor: true,
 
   pagination: {
@@ -192,7 +75,6 @@ document.querySelectorAll(".songSelectionContainer ol li").forEach((li) => {
     const src = this.getAttribute("data-src");
     const audioSource = song.querySelector("source");
     if (audioSource.src.endsWith(src)) {
-      console.log(src);
       song.currentTime = 0;
       song.play();
       return;
@@ -255,7 +137,7 @@ song.addEventListener("playing", function () {
     if (currentSrc.endsWith(dataSrc.replace("./", ""))) {
       item.classList.add("playing");
       musicName.textContent = item.textContent;
-      musicSubtitle.textContent = "by Gene";
+      musicSubtitle.textContent = "by me";
     } else {
       item.classList.remove("playing");
     }
@@ -340,13 +222,88 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-document.querySelectorAll(".navigationContainer ul li a").forEach((link) => {
+const volumeRange = document.getElementById("volumeRange");
+const volumeRangeContainer = document.getElementById("volumeRangeContainer");
+const volumeIcon = document.getElementById("volumeIcon");
+
+window.onload = function () {
+  song.volume = volumeRange.value;
+};
+
+volumeIcon.addEventListener("click", () => {
+  if (song.muted) {
+    song.muted = false;
+    volumeIcon.className = "fa-solid fa-volume-high fa-xl";
+  } else {
+    song.muted = true;
+    volumeIcon.className = "fa-solid fa-volume-mute fa-xl";
+  }
+});
+
+volumeRange.addEventListener("input", (e) => {
+  const volume = e.target.value;
+  if (volume < 0.5 && volume > 0) {
+    volumeIcon.className = "fa-solid fa-volume-low fa-xl";
+  } else if (volume >= 0.5) {
+    volumeIcon.className = "fa-solid fa-volume-high fa-xl";
+  } else if (volume == 0) {
+    volumeIcon.className = "fa-solid fa-volume-mute fa-xl";
+  }
+  song.muted = false;
+  song.volume = volume;
+});
+
+let volumeHideTimeout;
+
+const showVolumeSlider = () => {
+  clearTimeout(volumeHideTimeout);
+  volumeRangeContainer.classList.add("show");
+};
+
+const hideVolumeSlider = () => {
+  volumeHideTimeout = setTimeout(() => {
+    volumeRangeContainer.classList.remove("show");
+  }, 1000); // A short delay to allow moving the cursor to the slider
+};
+
+volumeIcon.addEventListener("mouseenter", showVolumeSlider);
+volumeIcon.addEventListener("mouseleave", hideVolumeSlider);
+
+volumeRangeContainer.addEventListener("mouseenter", showVolumeSlider);
+volumeRangeContainer.addEventListener("mouseleave", hideVolumeSlider);
+
+const rightContainer = document.querySelector(".rightContainer");
+const sections = document.querySelectorAll(".rightContainer .container");
+const navigationLinks = document.querySelectorAll(
+  ".navigationContainer ul li a"
+);
+
+function updateActiveNavOnScroll() {
+  let currentSectionId = "about"; // Default to 'about'
+  const threshold = window.innerHeight / 2;
+
+  sections.forEach((section) => {
+    const h1 = section.querySelector("h1.glitchText");
+    // If the h1's top is above the viewport's vertical middle, it's a candidate
+    if (h1 && h1.getBoundingClientRect().top < threshold) {
+      currentSectionId = section.getAttribute("id");
+    }
+  });
+
+  navigationLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + currentSectionId) {
+      link.classList.add("active");
+    }
+  });
+}
+
+rightContainer.addEventListener("scroll", updateActiveNavOnScroll);
+navigationLinks.forEach((link) => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
-    document
-      .querySelectorAll(".navigationContainer ul li a")
-      .forEach((l) => l.classList.remove("active"));
-    this.classList.add("active");
+    // navigationLinks.forEach((l) => l.classList.remove("active"));
+    // this.classList.add("active");
     const href = this.getAttribute("href");
     const section = document.querySelector(href);
     if (section) section.scrollIntoView({ behavior: "smooth" });

@@ -43,8 +43,8 @@ body {
   background-color: black;
   color: white;
   font-family: "JetBrains Mono", monospace;
-  background-image: linear-gradient(135deg, #000000, #25115bd2),
-    url("./public/assets/body_background.jpg");
+  background-image: linear-gradient(135deg, #0000009c, #25115bda),
+    url("./public/assets/pixel-gif-1.gif");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -73,27 +73,27 @@ body {
 .mainContainer {
   height: 100vh;
   width: 100vw;
+  display: flex;
 }
 .leftContainer {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  position: fixed;
+  /* position: fixed; */
   height: 100vh;
-  width: 40vw;
-  /* border-style: solid; */
+  width: 650px;
+  flex-shrink: 0;
   border-color: white;
   padding-top: 10vh;
   /* border: solid; */
 }
 
 .rightContainer {
-  width: 60vw;
   height: 100vh;
-  margin-left: 40vw;
+  min-width: 0;
   padding-top: 10vh;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  padding-left: 4vw;
+  padding-right: 4vw;
   /* border-style: solid; */
   border-color: white;
   overflow-y: auto;
@@ -101,17 +101,11 @@ body {
 
 .leftTopContainer {
   display: flex;
-}
-
-.musicContainer,
-.navigationContainer {
-  grid-column: span 1;
+  /* border: solid; */
+  margin-left: 10vh;
 }
 
 .musicContainer {
-  /* position: fixed; */
-  /* margin-top: 10vh; */
-  margin-left: 10vh;
   height: fit-content;
   width: 340px;
   border-radius: 20px;
@@ -132,7 +126,7 @@ body {
   margin-bottom: 4%;
   border-radius: 15px;
   overflow: hidden;
-  background-image: url("./public/assets/wanderlust_by_erisiar_ddzdf96-414w-2x.jpg");
+  background-image: url("./public/assets/download.gif");
   background-position: center;
   aspect-ratio: 1/1;
   background-size: cover;
@@ -187,19 +181,44 @@ body {
   cursor: pointer;
 }
 .musicControls div {
-  margin-top: 0.9em;
-  margin-left: 1.2em;
-  margin-right: 1.2em;
+  margin-top: 0.9rem;
+  margin-left: 1.1rem;
+  margin-right: 1.2rem;
+}
+
+#volumeRangeContainer {
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid #2c2c2c;
+  border-radius: 5px;
+  margin-top: 280px;
+  margin-left: 5px;
+  height: 80px;
+  width: 30px;
+  padding: 5px 10px;
+  background-color: var(--dim-color);
+  transition: opacity 0.3s;
+}
+#volumeRangeContainer.show {
+  opacity: 1;
+}
+#volumeRange {
+  width: 100px;
+  height: 10px;
+  transform: rotate(270deg);
+  scale: 0.6;
+  cursor: pointer;
 }
 
 .navigationContainer {
-  position: fixed;
   margin-top: 1vh;
-  margin-left: 460px;
 }
 .navigationContainer li {
   list-style: none;
-  margin-bottom: 30%;
+  margin-bottom: 1rem;
+  margin-left: 2vw;
 }
 .navigationContainer ul li a {
   text-decoration: none;
@@ -207,12 +226,12 @@ body {
   color: var(--dim-color);
   transition: color 0.3s, font-size 0.3s, transform 0.3s;
   transform: scale(1); /* Add this line */
-  transform-origin: left center; /* Add this line for better scaling */
+  transform-origin: left center;
 }
 .navigationContainer ul li a.active {
   color: var(--primary-color);
   font-size: 1.7rem;
-  transform: scale(1.25);
+  transform: scale(1.2);
   z-index: 1;
 }
 
@@ -436,6 +455,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 50%;
+  width: 100%;
 }
 .cardContainer {
   padding-block: 5rem;
@@ -448,6 +468,7 @@ body {
 .cardArticle {
   height: 480px;
   width: 300px;
+  position: relative;
   border-radius: 1.25rem;
   overflow: hidden;
   border: 2px solid var(--primary-color);
@@ -458,6 +479,10 @@ body {
   justify-content: center;
   transition: background-color 0.6s;
 }
+.cardArticle a {
+  text-decoration: none;
+  color: white;
+}
 .cardImage {
   display: flex;
   position: relative;
@@ -466,14 +491,6 @@ body {
   /* margin-bottom: 0.75rem; */
   justify-content: center;
   height: 30vh;
-}
-.cardData {
-  background-color: #000000a4;
-  padding: 1.5rem, 2rem;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-  transition: transform 0.4s opacity 0.4s;
 }
 .cardImg {
   width: 100%;
@@ -496,6 +513,16 @@ body {
   z-index: -10;
   transition: transform 0.4s;
 }
+.cardData {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: #000000b5;
+  padding: 1.5rem, 2rem;
+  text-align: center;
+  z-index: 10;
+  transition: transform 0.4s opacity 0.4s;
+}
 .cardTitle {
   margin-top: 0.5rem;
   font-size: 1.5rem;
@@ -510,11 +537,8 @@ body {
 /* card animation */
 .cardArticle:hover .cardImg {
   transform: translateY(-1.5rem);
+  transform: scale(1.2);
 }
-/* .cardArticle:hover .cardData {
-  transform: translateY(-4.5rem);
-  opacity: 0;
-} */
 .cardArticle:hover {
   background-color: transparent;
 }

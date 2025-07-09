@@ -56,7 +56,9 @@
               <div>
                 <i class="fa-solid fa-forward-step fa-2xl" id="nextBtn"></i>
               </div>
-              <div><i class="fa-solid fa-repeat fa-xl"></i></div>
+              <div>
+                <i class="fa-solid fa-volume-high fa-xl" id="volumeIcon"> </i>
+              </div>
             </div>
           </div>
           <nav class="navigationContainer">
@@ -65,6 +67,16 @@
               <li><a href="#resume">Experience</a></li>
               <li><a href="#projects">Projects</a></li>
             </ul>
+            <div id="volumeRangeContainer">
+              <input
+                type="range"
+                id="volumeRange"
+                min="0"
+                max="1"
+                value="0.3"
+                step="0.01"
+              />
+            </div>
           </nav>
         </div>
         <div class="leftBottomContainer">
@@ -118,7 +130,7 @@
       </div>
 
       <div class="rightContainer">
-        <div id="about" class="aboutContainer">
+        <div id="about" class="aboutContainer container">
           <h1 class="glitchText">
             <span aria-hidden="true">About Me</span>About Me<span
               aria-hidden="true"
@@ -162,7 +174,7 @@
           </div>
         </div>
 
-        <div id="resume" class="resumeContainer">
+        <div id="resume" class="resumeContainer container">
           <h1 class="glitchText" style="margin-top: 1em">
             <span aria-hidden="true">Experience</span>Experience<span
               aria-hidden="true"
@@ -202,8 +214,8 @@
                       </a>
                     </h3>
                     <p class="job-description">
-                      Coach students between the ages of 8 to 16 on programming
-                      and robotics.
+                      Tutoring students between the ages of 8 to 16 on
+                      programming and robotics.
                     </p>
                     <ul class="tech-stack">
                       <li class="tech-item">
@@ -221,11 +233,11 @@
                     <h3 class="job-title">
                       <a
                         class="company-link"
-                        href="https://www.community-hackathon.gov.sg/"
+                        href="https://www.community-hackathon.gov.sg/2025/bingo"
                         target="_blank"
                         rel="noreferrer noopener"
                       >
-                        <span>Participant • Community Hackathon 2025</span>
+                        <span>Engineer • Community Hackathon 2025</span>
                         <svg
                           class="external-link-icon"
                           xmlns="http://www.w3.org/2000/svg"
@@ -243,7 +255,7 @@
                     <p class="job-description">
                       Programming sensors and microcontroller for receiving
                       compost temperature and soil moisture and then making api
-                      requests to our web app.
+                      POST requests to our web app.
                     </p>
                     <ul class="related-links">
                       <li>
@@ -269,6 +281,29 @@
                           Code
                         </a>
                       </li>
+                      <li>
+                        <a
+                          class="related-link"
+                          href="https://team-21.vercel.app"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <svg
+                            class="link-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z"
+                            ></path>
+                            <path
+                              d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z"
+                            ></path>
+                          </svg>
+                          bin•go
+                        </a>
+                      </li>
                     </ul>
                     <ul class="tech-stack">
                       <li class="tech-item">
@@ -278,62 +313,6 @@
                   </div>
                 </div>
               </li>
-
-              <li class="experience-item">
-                <div class="experience-content">
-                  <header class="experience-header">Dec 2024</header>
-                  <div class="experience-details">
-                    <h3 class="job-title">
-                      <a
-                        class="company-link"
-                        href="./public/assets/SUTD WTH Cert.pdf"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                      >
-                        <span
-                          >Best Design Award – SUTD What The Hack
-                          Hackathon</span
-                        >
-                        <svg
-                          class="external-link-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </a>
-                    </h3>
-                    <!-- <div class="job-progression">
-                      <div>Senior Engineer</div>
-                      <div>Engineer</div>
-                    </div> -->
-                    <p class="job-description">
-                      Developed a full-stack webpage(front and backend) for an
-                      ESP32 based AI-powered assistive learning tool designed to
-                      enhance classroom interaction for mute and/or deaf
-                      students. Designed the voting interface and processed
-                      real-time transmitted data from the device.
-                    </p>
-                    <ul class="tech-stack">
-                      <li class="tech-item">
-                        <div class="tech-tag">JavaScript</div>
-                      </li>
-                      <li class="tech-item">
-                        <div class="tech-tag">HTML & SCSS</div>
-                      </li>
-                      <li class="tech-item">
-                        <div class="tech-tag">Node.js</div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-
               <li class="experience-item">
                 <div class="experience-content">
                   <header class="experience-header">May 2025</header>
@@ -341,7 +320,7 @@
                     <h3 class="job-title">
                       <a
                         class="company-link"
-                        href=""
+                        href="https://www.dstabrainhack.com/activities-til-ai"
                         target="_blank"
                         rel="noreferrer noopener"
                       >
@@ -398,6 +377,85 @@
                   </div>
                 </div>
               </li>
+              <li class="experience-item">
+                <div class="experience-content">
+                  <header class="experience-header">Dec 2024</header>
+                  <div class="experience-details">
+                    <h3 class="job-title">
+                      <a
+                        class="company-link"
+                        href="https://devpost.com/software/team-trifecta-eduegg?_gl=1*1a3cjoq*_gcl_au*MTk1OTUyODg2OS4xNzUyMDE5NjQ5*_ga*NDQ5NDgzNzcwLjE3NTIwMTk2NDk.*_ga_0YHJK3Y10M*czE3NTIwMTk2NDkkbzEkZzEkdDE3NTIwMTk2NTQkajU1JGwwJGgw"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        <span
+                          >Best Design Award – SUTD What The Hack
+                          Hackathon</span
+                        >
+                        <svg
+                          class="external-link-icon"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </a>
+                    </h3>
+                    <!-- <div class="job-progression">
+                      <div>Senior Engineer</div>
+                      <div>Engineer</div>
+                    </div> -->
+                    <p class="job-description">
+                      Developed a full-stack webpage(front and backend) for an
+                      ESP32 based AI-powered assistive learning tool designed to
+                      enhance classroom interaction for mute and/or deaf
+                      students. Designed the voting interface and processed
+                      real-time transmitted data from the device.
+                    </p>
+                    <ul class="related-links">
+                      <li>
+                        <a
+                          class="related-link"
+                          href="./public/assets/SUTD WTH Cert.pdf"
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <svg
+                            class="link-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z"
+                            ></path>
+                            <path
+                              d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z"
+                            ></path>
+                          </svg>
+                          Certificate
+                        </a>
+                      </li>
+                    </ul>
+                    <ul class="tech-stack">
+                      <li class="tech-item">
+                        <div class="tech-tag">JavaScript</div>
+                      </li>
+                      <li class="tech-item">
+                        <div class="tech-tag">HTML & CSS</div>
+                      </li>
+                      <li class="tech-item">
+                        <div class="tech-tag">Node.js</div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
             </ol>
 
             <div>
@@ -425,7 +483,7 @@
           </div>
         </div>
 
-        <div id="projects" class="projectsContainer">
+        <div id="projects" class="projectsContainer container">
           <h1 class="glitchText" style="margin-top: 1em">
             <span aria-hidden="true">Projects</span>Projects<span
               aria-hidden="true"
@@ -452,14 +510,15 @@
                           src="./public/assets/ai-generated-7681983_1280.jpg"
                           alt="image"
                           class="cardBg"
-                        /></div
-                    ></a>
-                    <div class="cardData">
-                      <h3 class="cardTitle">Triolingo</h3>
-                      <p class="cardDescription">
-                        A practice tool for learning a language efficiently.
-                      </p>
-                    </div>
+                        />
+                      </div>
+                      <div class="cardData">
+                        <h3 class="cardTitle">Triolingo</h3>
+                        <p class="cardDescription">
+                          A practice tool for learning a language efficiently.
+                        </p>
+                      </div>
+                    </a>
                   </article>
                   <article class="cardArticle swiper-slide">
                     <a
@@ -526,8 +585,8 @@
                     <div class="cardData">
                       <h3 class="cardTitle">Trading Bot</h3>
                       <p class="cardDescription">
-                        Predicts market price of stocks using the yahoo finance
-                        API, and implementing trades using LumiBot and Alpaca
+                        Predicts market price of stocks with yahoo finance API
+                        to execute trades in Alpaca
                       </p>
                     </div>
                   </article>
