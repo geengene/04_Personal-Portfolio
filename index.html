@@ -1,351 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Michroma&family=Orbitron:wght@400..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Orbitron:wght@400..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Personal Portfolio</title>
-  </head>
-  <div id="cursor-glow"></div>
-  <body>
-    <div class="mainContainer">
-      <div class="leftContainer">
-        <div class="leftTopContainer">
-          <div class="musicContainer">
-            <div class="musicImage"></div>
-            <h2 class="musicName">Gene</h2>
-            <h4 class="musicSubtitle">Developer</h4>
-            <audio id="song">
-              <source
-                src="./public/assets/trance2.wav"
-                type="audio/wav"
-                id="audio"
-              />
-            </audio>
-            <input type="range" value="0" id="progress" />
-            <div class="musicControls">
-              <div><i class="fa-solid fa-shuffle fa-xl"></i></div>
-              <div>
-                <i class="fa-solid fa-backward-step fa-2xl" id="prevBtn"></i>
-              </div>
-              <div onclick="playPause()">
-                <i class="fa-solid fa-circle-play fa-3x" id="play"></i>
-              </div>
-              <div>
-                <i class="fa-solid fa-forward-step fa-2xl" id="nextBtn"></i>
-              </div>
-              <div>
-                <i class="fa-solid fa-volume-high fa-xl" id="volumeIcon"> </i>
-              </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Orbitron:wght@400..900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Orbitron:wght@400..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Personal Portfolio</title>
+</head>
+<div id="cursor-glow"></div>
+
+<body>
+  <div class="mainContainer">
+    <div class="leftContainer">
+      <div class="leftTopContainer">
+        <div class="musicContainer">
+          <div class="musicImage"></div>
+          <h2 class="musicName">Gene</h2>
+          <h4 class="musicSubtitle">Developer</h4>
+          <audio id="song">
+            <source src="./public/assets/trance2.wav" type="audio/wav" id="audio" />
+          </audio>
+          <input type="range" value="0" id="progress" />
+          <div class="musicControls">
+            <div><i class="fa-solid fa-shuffle fa-xl"></i></div>
+            <div>
+              <i class="fa-solid fa-backward-step fa-2xl" id="prevBtn"></i>
+            </div>
+            <div onclick="playPause()">
+              <i class="fa-solid fa-circle-play fa-3x" id="play"></i>
+            </div>
+            <div>
+              <i class="fa-solid fa-forward-step fa-2xl" id="nextBtn"></i>
+            </div>
+            <div>
+              <i class="fa-solid fa-volume-high fa-xl" id="volumeIcon"> </i>
             </div>
           </div>
-          <nav class="navigationContainer">
-            <ul>
-              <li><a href="#about" class="active">About</a></li>
-              <li><a href="#resume">Experience</a></li>
-              <li><a href="#projects">Projects</a></li>
-            </ul>
-            <div id="volumeRangeContainer">
-              <input
-                type="range"
-                id="volumeRange"
-                min="0"
-                max="1"
-                value="0.3"
-                step="0.01"
-              />
-            </div>
-          </nav>
         </div>
-        <div class="leftBottomContainer">
-          <div class="audioWaveContainer">
-            <canvas id="musicCanvas" hidden></canvas>
-            <img id="gif" src="./public/assets/coding.gif" alt="gif" />
+        <nav class="navigationContainer">
+          <ul>
+            <li><a href="#about" class="active">About</a></li>
+            <li><a href="#resume">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+          </ul>
+          <div id="volumeRangeContainer">
+            <input type="range" id="volumeRange" min="0" max="1" value="0.3" step="0.01" />
           </div>
-          <div class="songSelectionContainer">
-            <p>Tracks:</p>
-            <hr />
-            <ol>
-              <li data-src="./public/assets/trance2.wav">Trance</li>
-              <li data-src="./public/assets/boopity_chiptunes.wav">
-                Chiptunes
-              </li>
-              <li data-src="./public/assets/oggsford.wav">Oggsford</li>
-            </ol>
-          </div>
+        </nav>
+      </div>
+      <div class="leftBottomContainer">
+        <div class="audioWaveContainer">
+          <canvas id="musicCanvas" hidden></canvas>
+          <img id="gif" src="./public/assets/coding.gif" alt="gif" />
         </div>
-        <div class="socialIcons">
-          <div>
-            <a href="https://www.linkedin.com/in/kuahgeneqhee/">
-              <i class="fa-brands fa-linkedin fa-xl" style="color: gray"></i>
-            </a>
-          </div>
-          <p>–</p>
-          <div>
-            <a href="https://www.youtube.com/@g66n">
-              <i class="fa-brands fa-youtube fa-xl" style="color: gray"></i>
-            </a>
-          </div>
-          <p>–</p>
-          <div>
-            <a href="https://github.com/geengene">
-              <i class="fa-brands fa-github fa-xl" style="color: gray"></i>
-            </a>
-          </div>
-          <p>–</p>
-          <div>
-            <a href="https://www.instagram.com/geen._.gene/">
-              <i class="fa-brands fa-instagram fa-xl" style="color: gray"></i>
-            </a>
-          </div>
-          <p>–</p>
-          <div>
-            <a href="mailto:kgqgene@gmail.com">
-              <i class="fa-regular fa-envelope fa-xl" style="color: gray"></i>
-            </a>
-          </div>
+        <div class="songSelectionContainer">
+          <p>Tracks:</p>
+          <hr />
+          <ol>
+            <li data-src="./public/assets/trance2.wav">Trance</li>
+            <li data-src="./public/assets/boopity_chiptunes.wav">
+              Chiptunes
+            </li>
+            <li data-src="./public/assets/oggsford.wav">Oggsford</li>
+          </ol>
+        </div>
+      </div>
+      <div class="socialIcons">
+        <div>
+          <a href="https://www.linkedin.com/in/kuahgeneqhee/">
+            <i class="fa-brands fa-linkedin fa-xl" style="color: gray"></i>
+          </a>
+        </div>
+        <p>–</p>
+        <div>
+          <a href="https://www.youtube.com/@g66n">
+            <i class="fa-brands fa-youtube fa-xl" style="color: gray"></i>
+          </a>
+        </div>
+        <p>–</p>
+        <div>
+          <a href="https://github.com/geengene">
+            <i class="fa-brands fa-github fa-xl" style="color: gray"></i>
+          </a>
+        </div>
+        <p>–</p>
+        <div>
+          <a href="https://www.instagram.com/geen._.gene/">
+            <i class="fa-brands fa-instagram fa-xl" style="color: gray"></i>
+          </a>
+        </div>
+        <p>–</p>
+        <div>
+          <a href="mailto:kgqgene@gmail.com">
+            <i class="fa-regular fa-envelope fa-xl" style="color: gray"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="rightContainer">
+      <div id="about" class="aboutContainer container">
+        <h1 class="glitchText">
+          <span aria-hidden="true">About Me</span>About Me<span aria-hidden="true">About Me</span>
+        </h1>
+        <div class="subHeaderTextContainer">
+          <span class="subHeaderText">I'm </span>
+          <span class="subHeaderText about"></span>
+        </div>
+        <div class="paragraphContainerAbout">
+          <p style="margin-bottom: 1em">
+            Hi! I'm Gene, currently an incoming Year 1 undergraduate at the
+            National University of Singapore, studying Computer Science.
+          </p>
+          <p style="margin-bottom: 1em">
+            I began programming during what little pockets of free time I had
+            in NS out of curiosity, and quickly came to be smitten by the
+            infinite possibilities of such a skill. I learnt the basics of
+            programming methodology, and moved on to dive deeper into software
+            engineering. Since then, I've focused on full stack development
+            using React and NextJS, and dipped my toes into other
+            specialisations like embedded systems, machine learning, red
+            teaming, and solving programming challenges.
+          </p>
+          <p style="margin-bottom: 1em">
+            I've participated in hackathons with friends to put what I've
+            learnt to test, and greatly enjoyed each experience I've been
+            given. I've also built my own personal projects, whether it be to
+            serve a need/problem I had, or a vision of the next million dollar
+            VC startup.
+          </p>
+          <p>
+            When I'm not being some troglodyte CS student punching
+            gobbledygook code into my computer, I spend my unemployed
+            time(hire me) playing guitar, producing Singapore's next hit
+            single, and contemplating life's eternal dread and the fleeting
+            passage of time😀.
+          </p>
         </div>
       </div>
 
-      <div class="rightContainer">
-        <div id="about" class="aboutContainer container">
-          <h1 class="glitchText">
-            <span aria-hidden="true">About Me</span>About Me<span
-              aria-hidden="true"
-              >About Me</span
-            >
-          </h1>
-          <div class="subHeaderTextContainer">
-            <span class="subHeaderText">I'm </span>
-            <span class="subHeaderText about"></span>
-          </div>
-          <div class="paragraphContainerAbout">
-            <p style="margin-bottom: 1em">
-              Hi! I'm Gene, currently a Year 1 undergraduate at the National
-              University of Singapore, studying Computer Science.
-            </p>
-            <p style="margin-bottom: 1em">
-              I began programming during what little pockets of free time I had
-              in NS out of curiosity, and quickly came to be smitten by the
-              infinite possibilities of such a skill. I learnt the basics of
-              programming methodology, and moved on to dive deeper into software
-              engineering. Since then, I've focused on full stack development
-              using React and NextJS, and dipped my toes into other
-              specialisations like embedded systems, machine learning, red
-              teaming, and solving programming challenges.
-            </p>
-            <p style="margin-bottom: 1em">
-              I've participated in hackathons with friends to put what I've
-              learnt to test, and greatly enjoyed each experience I've been
-              given. I've also built my own personal projects, whether it be to
-              serve a need/problem I had, or a vision of the next million dollar
-              VC startup.
-            </p>
-            <p>
-              When I'm not being some troglodyte CS student punching
-              gobbledygook code into my computer, I spend my unemployed
-              time(hire me) playing guitar, producing Singapore's next hit
-              single, working out, living an alternate life in open world games,
-              and contemplating life's eternal dread and the fleeting passage of
-              time😀.
-            </p>
-          </div>
+      <div id="resume" class="resumeContainer container">
+        <h1 class="glitchText" style="margin-top: 1em">
+          <span aria-hidden="true">Experience</span>Experience<span aria-hidden="true">Experience</span>
+        </h1>
+        <div class="subHeaderTextContainer">
+          <span class="subHeaderText"></span>
+          <span class="subHeaderText experience"></span>
         </div>
-
-        <div id="resume" class="resumeContainer container">
-          <h1 class="glitchText" style="margin-top: 1em">
-            <span aria-hidden="true">Experience</span>Experience<span
-              aria-hidden="true"
-              >Experience</span
-            >
-          </h1>
-          <div class="subHeaderTextContainer">
-            <span class="subHeaderText"></span>
-            <span class="subHeaderText experience"></span>
-          </div>
-          <div class="resumeContent">
-            <ol class="experience-list">
-              <li class="experience-item">
-                <div class="experience-content">
-                  <header class="experience-header">Apr 2025 – Present</header>
-                  <div class="experience-details">
-                    <h3 class="job-title">
-                      <a
-                        class="company-link"
-                        href="https://www.hellothinkcode.com/"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                      >
-                        <span>Teaching Assistant • ThinkCode Singapore</span>
-                        <svg
-                          class="external-link-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </a>
-                    </h3>
-                    <p class="job-description">
-                      Tutoring students between the ages of 8 to 16 on
-                      programming and robotics.
-                    </p>
-                    <ul class="tech-stack">
-                      <li class="tech-item">
-                        <div class="tech-tag">C</div>
-                      </li>
-                    </ul>
-                  </div>
+        <div class="resumeContent">
+          <ol class="experience-list">
+            <li class="experience-item">
+              <div class="experience-content">
+                <header class="experience-header">Apr 2025 – Present</header>
+                <div class="experience-details">
+                  <h3 class="job-title">
+                    <a class="company-link" href="https://www.hellothinkcode.com/" target="_blank"
+                      rel="noreferrer noopener">
+                      <span>Teaching Assistant • ThinkCode Singapore</span>
+                      <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </a>
+                  </h3>
+                  <p class="job-description">
+                    Tutoring students between the ages of 8 to 16 on
+                    programming and robotics.
+                  </p>
+                  <ul class="tech-stack">
+                    <li class="tech-item">
+                      <div class="tech-tag">C</div>
+                    </li>
+                  </ul>
                 </div>
-              </li>
+              </div>
+            </li>
 
-              <li class="experience-item">
-                <div class="experience-content">
-                  <header class="experience-header">June 2025 – Present</header>
-                  <div class="experience-details">
-                    <h3 class="job-title">
-                      <a
-                        class="company-link"
-                        href="https://www.community-hackathon.gov.sg/2025/bingo"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                      >
-                        <span>Engineer • Community Hackathon 2025</span>
-                        <svg
-                          class="external-link-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
+            <li class="experience-item">
+              <div class="experience-content">
+                <header class="experience-header">June 2025 – Present</header>
+                <div class="experience-details">
+                  <h3 class="job-title">
+                    <a class="company-link" href="https://www.community-hackathon.gov.sg/2025/bingo" target="_blank"
+                      rel="noreferrer noopener">
+                      <span>Engineer • Community Hackathon 2025</span>
+                      <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </a>
+                  </h3>
+                  <p class="job-description">
+                    Programming sensors and microcontroller for receiving
+                    compost temperature and soil moisture and then making api
+                    POST requests to our web app.
+                  </p>
+                  <ul class="related-links">
+                    <li>
+                      <a class="related-link" href="https://github.com/geengene/18_comhack2025" target="_blank"
+                        rel="noreferrer noopener">
+                        <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                          fill="currentColor">
                           <path
-                            fill-rule="evenodd"
-                            d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                            clip-rule="evenodd"
-                          ></path>
+                            d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z">
+                          </path>
+                          <path
+                            d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z">
+                          </path>
                         </svg>
+                        Code
                       </a>
-                    </h3>
-                    <p class="job-description">
-                      Programming sensors and microcontroller for receiving
-                      compost temperature and soil moisture and then making api
-                      POST requests to our web app.
-                    </p>
-                    <ul class="related-links">
-                      <li>
-                        <a
-                          class="related-link"
-                          href="https://github.com/geengene/18_comhack2025"
-                          target="_blank"
-                          rel="noreferrer noopener"
-                        >
-                          <svg
-                            class="link-icon"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path
-                              d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z"
-                            ></path>
-                            <path
-                              d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z"
-                            ></path>
-                          </svg>
-                          Code
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          class="related-link"
-                          href="https://team-21.vercel.app"
-                          target="_blank"
-                          rel="noreferrer noopener"
-                        >
-                          <svg
-                            class="link-icon"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path
-                              d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z"
-                            ></path>
-                            <path
-                              d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z"
-                            ></path>
-                          </svg>
-                          bin•go
-                        </a>
-                      </li>
-                    </ul>
-                    <ul class="tech-stack">
-                      <li class="tech-item">
-                        <div class="tech-tag">C</div>
-                      </li>
-                    </ul>
-                  </div>
+                    </li>
+                    <li>
+                      <a class="related-link" href="https://team-21.vercel.app" target="_blank"
+                        rel="noreferrer noopener">
+                        <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                          fill="currentColor">
+                          <path
+                            d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z">
+                          </path>
+                          <path
+                            d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z">
+                          </path>
+                        </svg>
+                        bin•go
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="tech-stack">
+                    <li class="tech-item">
+                      <div class="tech-tag">C</div>
+                    </li>
+                  </ul>
                 </div>
-              </li>
-              <li class="experience-item">
-                <div class="experience-content">
-                  <header class="experience-header">May 2025</header>
-                  <div class="experience-details">
-                    <h3 class="job-title">
-                      <a
-                        class="company-link"
-                        href="https://www.dstabrainhack.com/activities-til-ai"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                      >
-                        <span>
-                          Participant • BrainHack TIL-AI Advanced Track
-                        </span>
-                        <svg
-                          class="external-link-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </a>
-                    </h3>
-                    <p class="job-description">
-                      Worked on developing the Reinforcement Learning model.
-                    </p>
-                    <ul class="related-links">
-                      <!-- <li>
+              </div>
+            </li>
+            <li class="experience-item">
+              <div class="experience-content">
+                <header class="experience-header">May 2025</header>
+                <div class="experience-details">
+                  <h3 class="job-title">
+                    <a class="company-link" href="https://www.dstabrainhack.com/activities-til-ai" target="_blank"
+                      rel="noreferrer noopener">
+                      <span>
+                        Participant • BrainHack TIL-AI Advanced Track
+                      </span>
+                      <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </a>
+                  </h3>
+                  <p class="job-description">
+                    Worked on developing the Reinforcement Learning model.
+                  </p>
+                  <ul class="related-links">
+                    <!-- <li>
                         <a
                           class="related-link"
                           href=""
@@ -368,286 +295,207 @@
                           Link
                         </a>
                       </li> -->
-                    </ul>
-                    <ul class="tech-stack">
-                      <li class="tech-item">
-                        <div class="tech-tag">PyTorch</div>
-                      </li>
-                    </ul>
-                  </div>
+                  </ul>
+                  <ul class="tech-stack">
+                    <li class="tech-item">
+                      <div class="tech-tag">PyTorch</div>
+                    </li>
+                  </ul>
                 </div>
-              </li>
-              <li class="experience-item">
-                <div class="experience-content">
-                  <header class="experience-header">Dec 2024</header>
-                  <div class="experience-details">
-                    <h3 class="job-title">
-                      <a
-                        class="company-link"
-                        href="https://devpost.com/software/team-trifecta-eduegg?_gl=1*1a3cjoq*_gcl_au*MTk1OTUyODg2OS4xNzUyMDE5NjQ5*_ga*NDQ5NDgzNzcwLjE3NTIwMTk2NDk.*_ga_0YHJK3Y10M*czE3NTIwMTk2NDkkbzEkZzEkdDE3NTIwMTk2NTQkajU1JGwwJGgw"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                      >
-                        <span
-                          >Best Design Award – SUTD What The Hack
-                          Hackathon</span
-                        >
-                        <svg
-                          class="external-link-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </a>
-                    </h3>
-                    <!-- <div class="job-progression">
+              </div>
+            </li>
+            <li class="experience-item">
+              <div class="experience-content">
+                <header class="experience-header">Dec 2024</header>
+                <div class="experience-details">
+                  <h3 class="job-title">
+                    <a class="company-link"
+                      href="https://devpost.com/software/team-trifecta-eduegg?_gl=1*1a3cjoq*_gcl_au*MTk1OTUyODg2OS4xNzUyMDE5NjQ5*_ga*NDQ5NDgzNzcwLjE3NTIwMTk2NDk.*_ga_0YHJK3Y10M*czE3NTIwMTk2NDkkbzEkZzEkdDE3NTIwMTk2NTQkajU1JGwwJGgw"
+                      target="_blank" rel="noreferrer noopener">
+                      <span>Best Design Award – SUTD What The Hack
+                        Hackathon</span>
+                      <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                          d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </a>
+                  </h3>
+                  <!-- <div class="job-progression">
                       <div>Senior Engineer</div>
                       <div>Engineer</div>
                     </div> -->
-                    <p class="job-description">
-                      Developed a full-stack webpage(front and backend) for an
-                      ESP32 based AI-powered assistive learning tool designed to
-                      enhance classroom interaction for mute and/or deaf
-                      students. Designed the voting interface and processed
-                      real-time transmitted data from the device.
-                    </p>
-                    <ul class="related-links">
-                      <li>
-                        <a
-                          class="related-link"
-                          href="./public/assets/SUTD WTH Cert.pdf"
-                          target="_blank"
-                          rel="noreferrer noopener"
-                        >
-                          <svg
-                            class="link-icon"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path
-                              d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z"
-                            ></path>
-                            <path
-                              d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z"
-                            ></path>
-                          </svg>
-                          Certificate
-                        </a>
-                      </li>
-                    </ul>
-                    <ul class="tech-stack">
-                      <li class="tech-item">
-                        <div class="tech-tag">JavaScript</div>
-                      </li>
-                      <li class="tech-item">
-                        <div class="tech-tag">HTML & CSS</div>
-                      </li>
-                      <li class="tech-item">
-                        <div class="tech-tag">Node.js</div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            </ol>
-
-            <div>
-              <a
-                class="resume-link"
-                href="./Kuah_Gene_Qhee_RESUME.pdf"
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <span>View my full resume here</span>
-                <svg
-                  class="external-link-icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div id="projects" class="projectsContainer container">
-          <h1 class="glitchText" style="margin-top: 1em">
-            <span aria-hidden="true">Projects</span>Projects<span
-              aria-hidden="true"
-              >Projects</span
-            >
-          </h1>
-          <div class="subHeaderTextContainer">
-            <span class="subHeaderText"></span>
-            <span class="subHeaderText projects"></span>
-          </div>
-          <section class="projectsCardContainer">
-            <div class="cardContainer swiper">
-              <div class="cardContent">
-                <div class="swiper-wrapper">
-                  <article class="cardArticle swiper-slide">
-                    <a href="https://github.com/geengene/03_Triolingo">
-                      <div class="cardImage">
-                        <img
-                          src="./public/assets/triolingo.png"
-                          alt="image"
-                          class="cardImg"
-                        />
-                        <img
-                          src="./public/assets/ai-generated-7681983_1280.jpg"
-                          alt="image"
-                          class="cardBg"
-                        />
-                      </div>
-                      <div class="cardData">
-                        <h3 class="cardTitle">Triolingo</h3>
-                        <p class="cardDescription">
-                          A practice tool for learning a language efficiently.
-                        </p>
-                      </div>
-                    </a>
-                  </article>
-                  <article class="cardArticle swiper-slide">
-                    <a
-                      href="https://github.com/geengene/Trifecta-What-The-Hack-24-EduEgg-"
-                    >
-                      <div class="cardImage">
-                        <img
-                          src="./public/assets/eduegg.png"
-                          alt="image"
-                          class="cardImg"
-                        />
-                        <img
-                          src="./public/assets/ai-generated-7681983_1280.jpg"
-                          alt="image"
-                          class="cardBg"
-                        /></div
-                    ></a>
-                    <div class="cardData">
-                      <h3 class="cardTitle">Edu Egg</h3>
-                      <p class="cardDescription">
-                        An educational companion for mute/deaf students to
-                        facilitate functional learning in classrooms
-                      </p>
-                    </div>
-                  </article>
-                  <article class="cardArticle swiper-slide">
-                    <a
-                      href="https://github.com/geengene/10_Algorithms_Visualiser"
-                    >
-                      <div class="cardImage">
-                        <img
-                          src="./public/assets/algo.jpg"
-                          alt="image"
-                          class="cardImg"
-                        />
-                        <img
-                          src="./public/assets/ai-generated-7681983_1280.jpg"
-                          alt="image"
-                          class="cardBg"
-                        /></div
-                    ></a>
-                    <div class="cardData">
-                      <h3 class="cardTitle">Algo-rhythm</h3>
-                      <p class="cardDescription">
-                        A beginner friendly visualisation of Data Structure and
-                        Algorithms
-                      </p>
-                    </div>
-                  </article>
-                  <article class="cardArticle swiper-slide">
-                    <a href="https://github.com/geengene/02_Trading_Bot_Python">
-                      <div class="cardImage">
-                        <img
-                          src="./public/assets/stocks.jpeg"
-                          alt="image"
-                          class="cardImg"
-                        />
-                        <img
-                          src="./public/assets/ai-generated-7681983_1280.jpg"
-                          alt="image"
-                          class="cardBg"
-                        /></div
-                    ></a>
-                    <div class="cardData">
-                      <h3 class="cardTitle">Trading Bot</h3>
-                      <p class="cardDescription">
-                        Predicts market price of stocks with yahoo finance API
-                        to execute trades in Alpaca
-                      </p>
-                    </div>
-                  </article>
-                  <article class="cardArticle swiper-slide">
-                    <a href="https://github.com/geengene/06_blog_webapp">
-                      <div class="cardImage">
-                        <img
-                          src="./public/assets/blogwebapp.png"
-                          alt="image"
-                          class="cardImg"
-                        />
-                        <img
-                          src="./public/assets/ai-generated-7681983_1280.jpg"
-                          alt="image"
-                          class="cardBg"
-                        /></div
-                    ></a>
-                    <div class="cardData">
-                      <h3 class="cardTitle">Blog Web App</h3>
-                      <p class="cardDescription">A basic blog site</p>
-                    </div>
-                  </article>
-                  <article class="cardArticle swiper-slide">
-                    <a href="https://github.com/geengene/17_fretnot">
-                      <div class="cardImage">
-                        <img
-                          src="./public/assets/fretnot.jpg"
-                          alt="image"
-                          class="cardImg"
-                        />
-                        <img
-                          src="./public/assets/ai-generated-7681983_1280.jpg"
-                          alt="image"
-                          class="cardBg"
-                        /></div
-                    ></a>
-                    <div class="cardData">
-                      <h3 class="cardTitle">FretNot</h3>
-                      <p class="cardDescription">
-                        A practice tool for getting your way around the guitar
-                        fretboard.
-                      </p>
-                    </div>
-                  </article>
+                  <p class="job-description">
+                    Developed a full-stack webpage(front and backend) for an
+                    ESP32 based AI-powered assistive learning tool designed to
+                    enhance classroom interaction for mute and/or deaf
+                    students. Designed the voting interface and processed
+                    real-time transmitted data from the device.
+                  </p>
+                  <ul class="related-links">
+                    <li>
+                      <a class="related-link" href="./public/assets/SUTD WTH Cert.pdf" target="_blank"
+                        rel="noreferrer noopener">
+                        <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                          fill="currentColor">
+                          <path
+                            d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z">
+                          </path>
+                          <path
+                            d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z">
+                          </path>
+                        </svg>
+                        Certificate
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="tech-stack">
+                    <li class="tech-item">
+                      <div class="tech-tag">JavaScript</div>
+                    </li>
+                    <li class="tech-item">
+                      <div class="tech-tag">HTML & CSS</div>
+                    </li>
+                    <li class="tech-item">
+                      <div class="tech-tag">Node.js</div>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <div class="swiper-button-prev">
-                <i class="fa-solid fa-chevron-left"></i>
-              </div>
-              <div class="swiper-button-next">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </section>
+            </li>
+          </ol>
+
+          <div>
+            <a class="resume-link" href="./Kuah_Gene_Qhee_RESUME.pdf" target="_blank" rel="noreferrer noopener">
+              <span>View my full resume here</span>
+              <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="./index.js"></script>
-  </body>
+      <div id="projects" class="projectsContainer container">
+        <h1 class="glitchText" style="margin-top: 1em">
+          <span aria-hidden="true">Projects</span>Projects<span aria-hidden="true">Projects</span>
+        </h1>
+        <div class="subHeaderTextContainer">
+          <span class="subHeaderText"></span>
+          <span class="subHeaderText projects"></span>
+        </div>
+        <section class="projectsCardContainer">
+          <div class="cardContainer swiper">
+            <div class="cardContent">
+              <div class="swiper-wrapper">
+                <article class="cardArticle swiper-slide">
+                  <a href="https://github.com/geengene/03_Triolingo">
+                    <div class="cardImage">
+                      <img src="./public/assets/triolingo.png" alt="image" class="cardImg" />
+                      <img src="./public/assets/ai-generated-7681983_1280.jpg" alt="image" class="cardBg" />
+                    </div>
+                    <div class="cardData">
+                      <h3 class="cardTitle">Triolingo</h3>
+                      <p class="cardDescription">
+                        A practice tool for learning a language efficiently.
+                      </p>
+                    </div>
+                  </a>
+                </article>
+                <article class="cardArticle swiper-slide">
+                  <a href="https://github.com/geengene/Trifecta-What-The-Hack-24-EduEgg-">
+                    <div class="cardImage">
+                      <img src="./public/assets/eduegg.png" alt="image" class="cardImg" />
+                      <img src="./public/assets/ai-generated-7681983_1280.jpg" alt="image" class="cardBg" />
+                    </div>
+                  </a>
+                  <div class="cardData">
+                    <h3 class="cardTitle">Edu Egg</h3>
+                    <p class="cardDescription">
+                      An educational companion for mute/deaf students to
+                      facilitate functional learning in classrooms
+                    </p>
+                  </div>
+                </article>
+                <article class="cardArticle swiper-slide">
+                  <a href="https://github.com/geengene/10_Algorithms_Visualiser">
+                    <div class="cardImage">
+                      <img src="./public/assets/algo.jpg" alt="image" class="cardImg" />
+                      <img src="./public/assets/ai-generated-7681983_1280.jpg" alt="image" class="cardBg" />
+                    </div>
+                  </a>
+                  <div class="cardData">
+                    <h3 class="cardTitle">Algo-rhythm</h3>
+                    <p class="cardDescription">
+                      A beginner friendly visualisation of Data Structure and
+                      Algorithms
+                    </p>
+                  </div>
+                </article>
+                <article class="cardArticle swiper-slide">
+                  <a href="https://github.com/geengene/02_Trading_Bot_Python">
+                    <div class="cardImage">
+                      <img src="./public/assets/stocks.jpeg" alt="image" class="cardImg" />
+                      <img src="./public/assets/ai-generated-7681983_1280.jpg" alt="image" class="cardBg" />
+                    </div>
+                  </a>
+                  <div class="cardData">
+                    <h3 class="cardTitle">Trading Bot</h3>
+                    <p class="cardDescription">
+                      Predicts market price of stocks with yahoo finance API
+                      to execute trades in Alpaca
+                    </p>
+                  </div>
+                </article>
+                <article class="cardArticle swiper-slide">
+                  <a href="https://github.com/geengene/06_blog_webapp">
+                    <div class="cardImage">
+                      <img src="./public/assets/blogwebapp.png" alt="image" class="cardImg" />
+                      <img src="./public/assets/ai-generated-7681983_1280.jpg" alt="image" class="cardBg" />
+                    </div>
+                  </a>
+                  <div class="cardData">
+                    <h3 class="cardTitle">Blog Web App</h3>
+                    <p class="cardDescription">A basic blog site</p>
+                  </div>
+                </article>
+                <article class="cardArticle swiper-slide">
+                  <a href="https://github.com/geengene/17_fretnot">
+                    <div class="cardImage">
+                      <img src="./public/assets/fretnot.jpg" alt="image" class="cardImg" />
+                      <img src="./public/assets/ai-generated-7681983_1280.jpg" alt="image" class="cardBg" />
+                    </div>
+                  </a>
+                  <div class="cardData">
+                    <h3 class="cardTitle">FretNot</h3>
+                    <p class="cardDescription">
+                      A practice tool for getting your way around the guitar
+                      fretboard.
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="swiper-button-prev">
+              <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <div class="swiper-button-next">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./index.js"></script>
+</body>
+
 </html>
