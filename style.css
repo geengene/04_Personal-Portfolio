@@ -1446,6 +1446,7 @@ body {
 
   .paragraphContainerAbout {
     font-size: 0.6rem;
+    padding: 1rem;
   }
 
   .projectsCardContainer {
