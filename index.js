@@ -5,7 +5,7 @@ document.addEventListener("mousemove", (e) => {
 });
 
 var aboutTyped = new Typed(".subHeaderText.about", {
-  strings: ["Driven.", "Passionate.", "Adaptive.", "Curious."],
+  strings: ["Driven.", "Adaptive.", "Curious.", "Unemployed."],
   typeSpeed: 100,
   backSpeed: 50,
   smartBackspace: true,
