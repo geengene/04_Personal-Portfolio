@@ -26,50 +26,50 @@ var experienceTyped = new Typed(".subHeaderText.experience", {
   loop: true,
   backDelay: 10000,
 });
-let swiperCards = new Swiper(".cardContent", {
-  loop: true,
-  spaceBetween: 10,
-  grabCursor: true,
+// let swiperCards = new Swiper(".cardContent", {
+//   loop: true,
+//   spaceBetween: 10,
+//   grabCursor: true,
 
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    dynamicBullets: true,
-  },
+//   pagination: {
+//     el: ".swiper-pagination",
+//     clickable: true,
+//     dynamicBullets: true,
+//   },
 
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  mousewheel: {
-    enabled: true,
-    invert: false,
-    forceToAxis: true,
-    sensitivity: 0.5,
-  },
+//   navigation: {
+//     nextEl: ".swiper-button-next",
+//     prevEl: ".swiper-button-prev",
+//   },
+//   mousewheel: {
+//     enabled: true,
+//     invert: false,
+//     forceToAxis: true,
+//     sensitivity: 0.5,
+//   },
 
-  breakpoints: {
-    300: {
-      slidesPerView: 1,
-    },
-    320: {
-      slidesPerView: 2,
-    },
-    768: {
-      slidesPerView: 3,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-    1440: {
-      slidesPerView: 3
-    },
-    2560: {
-      slidesPerView: 5
-    }
+//   breakpoints: {
+//     300: {
+//       slidesPerView: 1,
+//     },
+//     320: {
+//       slidesPerView: 2,
+//     },
+//     768: {
+//       slidesPerView: 3,
+//     },
+//     1024: {
+//       slidesPerView: 3,
+//     },
+//     1440: {
+//       slidesPerView: 3
+//     },
+//     2560: {
+//       slidesPerView: 5
+//     }
 
-  },
-});
+//   },
+// });
 
 const song = document.getElementById("song");
 const play = document.getElementById("play");
